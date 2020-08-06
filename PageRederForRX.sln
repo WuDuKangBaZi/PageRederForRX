@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageRederForRX", "PageRederForRX\PageRederForRX.csproj", "{765D1611-65A8-4D6A-9D00-792F437BDC45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageRederTestConsole", "PageRederTestConsole\PageRederTestConsole.csproj", "{DD6C7785-E6AE-4E35-949D-E5518DF98E38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{765D1611-65A8-4D6A-9D00-792F437BDC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{765D1611-65A8-4D6A-9D00-792F437BDC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{765D1611-65A8-4D6A-9D00-792F437BDC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{765D1611-65A8-4D6A-9D00-792F437BDC45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD6C7785-E6AE-4E35-949D-E5518DF98E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD6C7785-E6AE-4E35-949D-E5518DF98E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD6C7785-E6AE-4E35-949D-E5518DF98E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD6C7785-E6AE-4E35-949D-E5518DF98E38}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AC7D1C8-F871-468A-8D7F-2538BE59603A}
+	EndGlobalSection
+EndGlobal
