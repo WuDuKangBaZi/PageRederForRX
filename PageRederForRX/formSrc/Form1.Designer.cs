@@ -36,6 +36,23 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.shuxingDataGrid = new System.Windows.Forms.DataGridView();
+            this.IBillId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vOrgID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vCheckType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vHint = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vExPValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vDicID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cIOrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vtestvalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -97,6 +114,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vDefault = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vLable = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,18 +132,16 @@
             this.vIsShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vtexttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shuxingDataGrid)).BeginInit();
+            this.panel23.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -148,11 +164,7 @@
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).BeginInit();
-            this.panel23.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainListBox
@@ -228,6 +240,166 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "布局预览界面--不支持操作";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tabControl1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 517);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(579, 297);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "单据相关信息修改";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(3, 17);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(573, 277);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.shuxingDataGrid);
+            this.tabPage1.Controls.Add(this.panel23);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(565, 251);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "单据属性检测";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // shuxingDataGrid
+            // 
+            this.shuxingDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.shuxingDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IBillId,
+            this.vOrgID,
+            this.cvID,
+            this.vCheckType,
+            this.vHint,
+            this.vExPValue,
+            this.vDicID,
+            this.cIOrderID,
+            this.vtestvalue,
+            this.vRemarks});
+            this.shuxingDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.shuxingDataGrid.Location = new System.Drawing.Point(3, 39);
+            this.shuxingDataGrid.Name = "shuxingDataGrid";
+            this.shuxingDataGrid.ReadOnly = true;
+            this.shuxingDataGrid.RowTemplate.Height = 23;
+            this.shuxingDataGrid.Size = new System.Drawing.Size(559, 209);
+            this.shuxingDataGrid.TabIndex = 1;
+            this.shuxingDataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.shuxing_doubleClick);
+            // 
+            // IBillId
+            // 
+            this.IBillId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IBillId.DataPropertyName = "IBillId";
+            this.IBillId.HeaderText = "单据号";
+            this.IBillId.Name = "IBillId";
+            this.IBillId.ReadOnly = true;
+            this.IBillId.Visible = false;
+            // 
+            // vOrgID
+            // 
+            this.vOrgID.DataPropertyName = "vOrgID";
+            this.vOrgID.HeaderText = "vOrgID";
+            this.vOrgID.Name = "vOrgID";
+            this.vOrgID.ReadOnly = true;
+            this.vOrgID.Visible = false;
+            // 
+            // cvID
+            // 
+            this.cvID.DataPropertyName = "vID";
+            this.cvID.HeaderText = "标签";
+            this.cvID.Name = "cvID";
+            this.cvID.ReadOnly = true;
+            // 
+            // vCheckType
+            // 
+            this.vCheckType.DataPropertyName = "vCheckType";
+            this.vCheckType.HeaderText = "判断类型";
+            this.vCheckType.Name = "vCheckType";
+            this.vCheckType.ReadOnly = true;
+            // 
+            // vHint
+            // 
+            this.vHint.DataPropertyName = "vHint";
+            this.vHint.HeaderText = "标题";
+            this.vHint.Name = "vHint";
+            this.vHint.ReadOnly = true;
+            // 
+            // vExPValue
+            // 
+            this.vExPValue.DataPropertyName = "vExPValue";
+            this.vExPValue.HeaderText = "判断逻辑";
+            this.vExPValue.Name = "vExPValue";
+            this.vExPValue.ReadOnly = true;
+            // 
+            // vDicID
+            // 
+            this.vDicID.DataPropertyName = "vDicID";
+            this.vDicID.HeaderText = "vDicID";
+            this.vDicID.Name = "vDicID";
+            this.vDicID.ReadOnly = true;
+            this.vDicID.Visible = false;
+            // 
+            // cIOrderID
+            // 
+            this.cIOrderID.DataPropertyName = "IOrderID";
+            this.cIOrderID.HeaderText = "排序";
+            this.cIOrderID.Name = "cIOrderID";
+            this.cIOrderID.ReadOnly = true;
+            // 
+            // vtestvalue
+            // 
+            this.vtestvalue.DataPropertyName = "vtestvalue";
+            this.vtestvalue.HeaderText = "测试数据";
+            this.vtestvalue.Name = "vtestvalue";
+            this.vtestvalue.ReadOnly = true;
+            // 
+            // vRemarks
+            // 
+            this.vRemarks.DataPropertyName = "vRemarks";
+            this.vRemarks.HeaderText = "备注";
+            this.vRemarks.Name = "vRemarks";
+            this.vRemarks.ReadOnly = true;
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.button2);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel23.Location = new System.Drawing.Point(3, 3);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(559, 36);
+            this.panel23.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(20, 10);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "加载数据";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(565, 251);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "单据事物检测";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // mainPanel
             // 
@@ -342,6 +514,7 @@
             // 
             // button6
             // 
+            this.button6.Enabled = false;
             this.button6.Location = new System.Drawing.Point(106, 32);
             this.button6.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
             this.button6.Name = "button6";
@@ -359,6 +532,7 @@
             this.button7.TabIndex = 5;
             this.button7.Text = "button7";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Visible = false;
             // 
             // panel19
             // 
@@ -833,6 +1007,10 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doubleCilck);
             // 
+            // dataLoadBindingSource
+            // 
+            this.dataLoadBindingSource.DataSource = typeof(PageRederForRX.src.Function.DataLoad);
+            // 
             // vID
             // 
             this.vID.DataPropertyName = "vID";
@@ -885,7 +1063,7 @@
             // vMainLable
             // 
             this.vMainLable.DataPropertyName = "vMainLable";
-            this.vMainLable.HeaderText = "展示名称";
+            this.vMainLable.HeaderText = "字段";
             this.vMainLable.Name = "vMainLable";
             this.vMainLable.ReadOnly = true;
             // 
@@ -969,71 +1147,6 @@
             this.vtexttype.ReadOnly = true;
             this.vtexttype.Visible = false;
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tabControl1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 517);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(579, 297);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "单据相关信息修改";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 17);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(573, 277);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel23);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(565, 251);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "单据属性检测";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(565, 251);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "单据事物检测";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataLoadBindingSource
-            // 
-            this.dataLoadBindingSource.DataSource = typeof(PageRederForRX.src.Function.DataLoad);
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.button2);
-            this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel23.Location = new System.Drawing.Point(3, 3);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(559, 42);
-            this.panel23.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(20, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1041,14 +1154,20 @@
             this.ClientSize = new System.Drawing.Size(1265, 817);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::PageRederForRX.Properties.Settings.Default, "MainFormName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.Text = "Form1";
+            this.Text = global::PageRederForRX.Properties.Settings.Default.MainFormName;
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.shuxingDataGrid)).EndInit();
+            this.panel23.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
@@ -1087,11 +1206,7 @@
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).EndInit();
-            this.panel23.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1166,6 +1281,23 @@
         private System.Windows.Forms.Button combtn;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView shuxingDataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IBillId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vOrgID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cvID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vCheckType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vHint;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vExPValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vDicID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cIOrderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vtestvalue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vRemarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn vID;
         private System.Windows.Forms.DataGridViewTextBoxColumn vDefault;
         private System.Windows.Forms.DataGridViewTextBoxColumn vLable;
@@ -1183,12 +1315,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vIsShow;
         private System.Windows.Forms.DataGridViewTextBoxColumn vChange;
         private System.Windows.Forms.DataGridViewTextBoxColumn vtexttype;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Button button2;
     }
 }
 

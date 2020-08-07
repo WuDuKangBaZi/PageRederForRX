@@ -1,7 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PageRederForRX.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="sqlstr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Server=192.168.0.201;Database=fundsMange_S2;uid=sa;pwd=Hzrx2019</Value>
+    </Setting>
+    <Setting Name="MainFormName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">自定义窗体名称</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

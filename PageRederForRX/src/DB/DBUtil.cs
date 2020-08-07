@@ -1,6 +1,9 @@
-﻿using System;
+﻿using PageRederForRX;
+using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace PageRederTestConsole
 {
@@ -11,12 +14,16 @@ namespace PageRederTestConsole
             SqlConnection sqlConnection = null;
             try
             {
-                sqlConnection = new SqlConnection("Server=192.168.0.201;Database=fundsMange_S2;uid=sa;pwd=Hzrx2019");
+
+                string str = PageRederForRX.Properties.Settings.Default.sqlstr;
+                Console.WriteLine(str);
+                sqlConnection = new SqlConnection(str);
                 sqlConnection.Open();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                MessageBox.Show("数据库读取错误！");
                 return null;
             }
             return sqlConnection;

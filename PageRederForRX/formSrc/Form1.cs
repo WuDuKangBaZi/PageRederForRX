@@ -1,11 +1,15 @@
-﻿using PageRederForRX.src.Function;
+﻿using PageRederForRX.formSrc;
+using PageRederForRX.src.Function;
 using PageRederTestConsole;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
 
 namespace PageRederForRX
 {
@@ -15,15 +19,17 @@ namespace PageRederForRX
         public Form1()
         {
             InitializeComponent();
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //调用主要数据加载方法
+            
             loadDefalutComboxSource();
             DataLoad dl = new DataLoad();
             List<string> vs = dl.loadMainLayout();
+            
             foreach (string ll in vs)
             {
                 MainListBox.Items.Add(ll);
@@ -380,7 +386,8 @@ namespace PageRederForRX
 
         private void savethis_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedValue == null || comboBox2.SelectedValue == null || comboBox3.SelectedValue == null || comboBox4.SelectedValue == null ) {
+            if (comboBox1.SelectedValue == null || comboBox2.SelectedValue == null || comboBox3.SelectedValue == null || comboBox4.SelectedValue == null)
+            {
                 MessageBox.Show("关键数据存在空值！不能保存！");
                 return;
             }
@@ -421,29 +428,47 @@ namespace PageRederForRX
                 cnn.Close();
 
             }
+        }
 
-            // 保存布局信息
-           /* string save_sql = $"update TBUDT_EditLayout set vMainLable = '{textBox13.Text}',vLable='{textBox10.Text}',vTop = '{textBox4.Text}', " +
-                $"vLeft = '{textBox3.Text}', vWidth = '{textBox5.Text}',vHeight = '{textBox6.Text}',vColor = '{textBox7.Text}',vGroundColor = '{textBox8.Text}'" +
-                $",IOrderID = '{textBox9.Text}',vfrmtype ='{comboBox2.SelectedValue.ToString()}',vIsShow = '{comboBox1.SelectedValue.ToString()}',vChange = '{comboBox3.SelectedValue.ToString()}'" +
-                $",vtexttype = '{comboBox4.SelectedValue.ToString()}',vDefault = '{textBox15.Text}' where vFieldCode = '{textBox2.Text}'";
-
-            DBUtil dB = new DBUtil();
-
-            int re_count = dB.doExecute(save_sql);
-            if (re_count != 1)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //加载数据
+            if (MainListBox.SelectedItem == null)
             {
-                MessageBox.Show("更新失败！");
+                //未选中
+                MessageBox.Show("未选中任何单据！");
             }
             else
             {
-                MessageBox.Show("更新成功");
-                string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,vIsShow,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'";
-                OSDataSet.Clear();
-                OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
-                dataGridView1.DataSource = OSDataSet.Tables[0];
-                drawMainView(OSDataSet);
-            }*/
+                queryTBUDT_BillChkStand();
+            }
         }
+        void queryTBUDT_BillChkStand()
+        {
+            string querySql = $"select IBillId,vOrgID,vID,vCheckType,vHint,vExPValue,vDicID,IOrderID,vtestvalue,vRemarks from TBUDT_BillChkStand where IBillID = (select IBillID from  TBUDT_ModeLayout where vid = '{MainListBox.SelectedItem}')";
+            DataSet ds = new DBUtil().Query(new DBUtil().GetConnection(), querySql);
+            shuxingDataGrid.DataSource = ds.Tables[0];
+
+        }
+
+        private void shuxing_doubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //双击
+            int rowIndex = e.RowIndex;
+            BillChkStand stand = new BillChkStand();
+            stand.IBillId = shuxingDataGrid.Rows[rowIndex].Cells["IBillId"].Value.ToString();
+            stand.VOrgID = shuxingDataGrid.Rows[rowIndex].Cells["vOrgID"].Value.ToString();
+            stand.VID = shuxingDataGrid.Rows[rowIndex].Cells["cvID"].Value.ToString();
+            stand.VCheckType = shuxingDataGrid.Rows[rowIndex].Cells["vCheckType"].Value.ToString();
+            stand.VHint = shuxingDataGrid.Rows[rowIndex].Cells["vHint"].Value.ToString();
+            stand.VExPValue = shuxingDataGrid.Rows[rowIndex].Cells["vExPValue"].Value.ToString();
+            stand.VDicID = shuxingDataGrid.Rows[rowIndex].Cells["vDicID"].Value.ToString();
+            stand.IOrderID = shuxingDataGrid.Rows[rowIndex].Cells["cIOrderID"].Value.ToString();
+            stand.Vtestvalue = shuxingDataGrid.Rows[rowIndex].Cells["vtestvalue"].Value.ToString();
+            stand.VRemarks = shuxingDataGrid.Rows[rowIndex].Cells["vRemarks"].Value.ToString();
+            stand.Show();
+
+        }
+        //异步重新绘制
     }
 }
