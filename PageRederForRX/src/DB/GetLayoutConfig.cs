@@ -28,18 +28,54 @@ namespace PageRederTestConsole
         
 
         }
-        public DataSet getModeLoayoutList() {
-            string querySql = "select vpid from TBUDT_EditLayout GROUP BY VPID";
+        public DataSet getModeLoayoutList(string ibillid) {
+            string querySql = "";
+            if (ibillid != "")
+            {
+                 querySql = $"select vpid from TBUDT_EditLayout te left join TBUDT_ModeLayout tm on te.vPID = tm.vid  where tm.IBillID like '%{ibillid}%' GROUP BY VPID";
+            }
+            else {
+                 querySql = "select vpid from TBUDT_EditLayout GROUP BY VPID";
+            }
             DBUtil dBUtil = new DBUtil();
             SqlConnection connection = dBUtil.GetConnection();
             DataSet dSet = dBUtil.Query(connection, querySql);
             dBUtil.close(connection);
             return dSet;
         }
-        public DataSet getEditLoayoutList(string vpid) {
+        public DataSet getChartLayoutList(string ibillid) {
             string querySql = "";
+            if (ibillid != "")
+            {
 
-            return null;
+                querySql = $"select vpid from TBUDT_ChartLayout te left join TBUDT_ModeLayout tm on te.vPID = tm.vid  where tm.IBillID like '%{ibillid}%' GROUP BY VPID";
+            }
+            else { 
+                querySql = "select vpid from TBUDT_ModeLayout GROUP BY VPID";
+            }
+            DBUtil dBUtil = new DBUtil();
+            SqlConnection connection = dBUtil.GetConnection();
+            DataSet dSet = dBUtil.Query(connection, querySql);
+            dBUtil.close(connection);
+            return dSet;
         }
+        /*public DataSet getModeQualityList(string ibillid)
+        {
+            string querySql = "";
+            if (ibillid != "")
+            {
+
+                querySql = $"select vpid from TBUDT_ChartLayout te left join TBUDT_ModeQuality tm on te.vPID = tm.vid  where tm.IBillID like '%{ibillid}%' GROUP BY VPID";
+            }
+            else
+            {
+                querySql = "select vpid from TBUDT_ModeQuality GROUP BY VPID";
+            }
+            DBUtil dBUtil = new DBUtil();
+            SqlConnection connection = dBUtil.GetConnection();
+            DataSet dSet = dBUtil.Query(connection, querySql);
+            dBUtil.close(connection);
+            return dSet;
+        }*/
     }
 }

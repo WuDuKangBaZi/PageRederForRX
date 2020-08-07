@@ -12,10 +12,10 @@ namespace PageRederForRX.src.Function
     class DataLoad
     {
         #region
-        public List<string> loadMainLayout() {
+        public List<string> loadMainLayout(string ibillid) {
             DBUtil dbUtil = new DBUtil();
             GetLayoutConfig getLayoutConfig = new GetLayoutConfig();
-            DataSet dataSet = getLayoutConfig.getModeLoayoutList();
+            DataSet dataSet = getLayoutConfig.getModeLoayoutList(ibillid);
             List<string> mainLayoutList = new List<string>();
             foreach (DataRow row in dataSet.Tables[0].Rows) {
                 foreach (DataColumn dataColumn in dataSet.Tables[0].Columns) {
