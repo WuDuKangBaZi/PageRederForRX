@@ -69,6 +69,9 @@
     <Compile Include="src\DB\DBUtil.cs" />
     <Compile Include="src\DB\GetLayoutConfig.cs" />
     <Compile Include="src\Function\DataLoad.cs" />
+    <Compile Include="src\Function\myLable.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="formSrc\BillChkStand.resx">
       <DependentUpon>BillChkStand.cs</DependentUpon>
     </EmbeddedResource>

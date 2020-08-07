@@ -22,7 +22,7 @@ namespace PageRederForRX
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       /* private void button1_Click(object sender, EventArgs e)
         {
             //调用主要数据加载方法
             
@@ -34,7 +34,7 @@ namespace PageRederForRX
             {
                 MainListBox.Items.Add(ll);
             }
-        }
+        }*/
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -49,6 +49,10 @@ namespace PageRederForRX
             string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,vIsShow,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'";
             OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
             dataGridView1.DataSource = OSDataSet.Tables[0];
+            //设置panel的高度 
+            /*queryString = $"select vHeight from TBUDT_ModeLayout where vid = '{MainListBox.SelectedItem}'";
+            DataSet dsSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
+            mainPanel.Height = int.Parse(dsSet.Tables[0].Rows[0][0].ToString());*/
             drawMainView(OSDataSet);
 
         }
@@ -171,8 +175,8 @@ namespace PageRederForRX
             tb.Height = grid_height;
             tb.Top = top_int;
             tb.Left = left_int + 80;
-            tb.ForeColor = stringToColor(vColor);
-            tb.BackColor = stringToColor(vGroundColor);
+            //tb.ForeColor = stringToColor(vColor);
+            //tb.BackColor = stringToColor(vGroundColor);
             if (vIsShow == 1)
             {
                 label.Visible = true;
@@ -214,8 +218,9 @@ namespace PageRederForRX
             tb.Height = grid_height;
             tb.Top = top_int;
             tb.Left = left_int + 80;
-            tb.ForeColor = stringToColor(vColor);
-            tb.BackColor = stringToColor(vGroundColor);
+            //tb.ForeColor = stringToColor(vColor);
+            //tb.BackColor = stringToColor(vGroundColor);
+            
             if (vIsShow == 1)
             {
                 label.Visible = true;
@@ -230,6 +235,7 @@ namespace PageRederForRX
             mainPanel.Controls.Add(tb);
 
         }
+       
         private void drawTextBox(DataRow gridRow)
         {
             //获取基础类型
@@ -260,8 +266,9 @@ namespace PageRederForRX
             tb.Height = grid_height;
             tb.Top = top_int;
             tb.Left = left_int + 80;
-            tb.ForeColor = stringToColor(vColor);
-            tb.BackColor = stringToColor(vGroundColor);
+            
+            //tb.ForeColor = stringToColor(vColor);
+            //tb.BackColor = stringToColor(vGroundColor);
             if (vIsShow == 1)
             {
                 label.Visible = true;
@@ -299,15 +306,17 @@ namespace PageRederForRX
             }
 
             //绘制Label
-            Label label = new Label();
+            myLable label = new myLable();
             label.Text = gridRow[2].ToString();
+            label.inputName = gridRow[1].ToString();
             label.Width = 80;
             label.Height = 25;
             label.AutoSize = false;
             label.Top = top_int;
             label.Left = left_int;
-            label.ForeColor = stringToColor(vColor);
-            label.BackColor = stringToColor(vGroundColor);
+            label.DoubleClick += new System.EventHandler(textboxDoubleClike);
+            //label.ForeColor = stringToColor(vColor);
+            //label.BackColor = stringToColor(vGroundColor);
             return label;
         }
         private Color stringToColor(string colorString)
@@ -318,7 +327,7 @@ namespace PageRederForRX
             }
             catch (Exception e)
             {
-                MessageBox.Show("这个单据的颜色配置异常，去数据库修改试试！");
+                //MessageBox.Show("这个单据的颜色配置异常，去数据库修改试试！");
                 return ColorTranslator.FromHtml("#fffff");
             }
         }
@@ -467,6 +476,33 @@ namespace PageRederForRX
             stand.Vtestvalue = shuxingDataGrid.Rows[rowIndex].Cells["vtestvalue"].Value.ToString();
             stand.VRemarks = shuxingDataGrid.Rows[rowIndex].Cells["vRemarks"].Value.ToString();
             stand.Show();
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            // 查询主表数据
+            MainListBox.Items.Clear();
+            loadDefalutComboxSource();
+            DataLoad dl = new DataLoad();
+            List<string> vs = dl.loadMainLayout(textBox11.Text);
+
+            foreach (string ll in vs)
+            {
+                MainListBox.Items.Add(ll);
+            }
+
+        }
+        private void textboxDoubleClike(object sender, EventArgs e)
+        {
+            myLable lable = (myLable)sender;
+            //MessageBox.Show(lable.inputName);
+            string sql = $"select vHeight,vWidth from TBUDT_ModeLayout where vid = '120hdata'";
+            //查询固定的操作
+            DBUtil dBUtil = new DBUtil();
+            DataSet ds = dBUtil.Query(dBUtil.GetConnection(),sql);
+            MessageBox.Show(ds.Tables[0].Rows[0][1].ToString());
+
 
         }
         //异步重新绘制
