@@ -30,7 +30,7 @@ namespace PageRederForRX.formSrc
         {
             InitializeComponent();
         }
-
+        #region 单据属性数据初始化 数据来源为 双击表格的时候传递过来的 
         private void onShow(object sender, EventArgs e)
         {
             dataInit();
@@ -45,6 +45,8 @@ namespace PageRederForRX.formSrc
 
 
         }
+        #endregion
+        #region 检测机制 下拉框值初始化
         private void dataInit()
         {
 
@@ -54,7 +56,8 @@ namespace PageRederForRX.formSrc
             vCheckType.DisplayMember = "Value";
 
         }
-
+        #endregion
+        #region 数据保存操作
         private void button1_Click(object sender, EventArgs e)
         {
             //保存数据到
@@ -92,7 +95,8 @@ namespace PageRederForRX.formSrc
 
             }
         }
-
+        #endregion
+        #region 新增菜单的点击事件
         private void 新增ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //新增按钮点击时 重置窗口数据
@@ -105,5 +109,6 @@ namespace PageRederForRX.formSrc
             addBtn = 1;
             vId.ReadOnly = false;
         }
+        #endregion
     }
 }

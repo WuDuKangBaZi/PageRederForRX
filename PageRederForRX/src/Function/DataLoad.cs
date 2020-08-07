@@ -11,7 +11,7 @@ namespace PageRederForRX.src.Function
 {
     class DataLoad
     {
-        #region
+        #region 主要布局信息加载 实际上查询的是 TBUDT_EditLayout
         public List<string> loadMainLayout(string ibillid) {
             DBUtil dbUtil = new DBUtil();
             GetLayoutConfig getLayoutConfig = new GetLayoutConfig();
@@ -29,29 +29,9 @@ namespace PageRederForRX.src.Function
         
         }
         #endregion
-        public Dictionary<int, string> getDictonaryByvfrmtype() {
-            Dictionary<int, string> defaulat = new Dictionary<int, string>();
-            defaulat.Add(0, "输入框");
-            defaulat.Add(1, "表格");
-            defaulat.Add(2, "树");
-            defaulat.Add(3, "时间");
-            defaulat.Add(10, "跳转页面 多选");
-            defaulat.Add(11, "跳转页面 单选");
-            defaulat.Add(12, "右边显示是否");
-            return defaulat;
-        
-        }
-        public Dictionary<int, string> getDictonaryByTF() {
-            Dictionary<int, string> defaulat = new Dictionary<int, string>();
-            defaulat.Add(0, "输入框");
-            defaulat.Add(1, "表格");
-            defaulat.Add(2, "树");
-            defaulat.Add(3, "时间");
-            defaulat.Add(10, "跳转页面 多选");
-            defaulat.Add(11, "跳转页面 单选");
-            defaulat.Add(12, "右边显示是否");
-            return defaulat;
-        }
+
+
+        #region 查询系统字典表 下拉框的参数使用
         public BindingSource getparamcode(string vtypeid) {
             Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
             string querySql = $"select code,name from tpzjk_getparamcode where typeid = '{vtypeid}'";
@@ -70,6 +50,7 @@ namespace PageRederForRX.src.Function
             bs.DataSource = keyValuePairs;
             return bs;
         }
+        #endregion
 
     }
 }

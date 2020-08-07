@@ -58,11 +58,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.vApiId = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -141,10 +137,26 @@
             this.vIsShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vtexttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.com_title_vkeyValue = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.com_IOrderId = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.com_vExpParam = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.com_vRemarks = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.com_vSQL = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.com_vApiId = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.messageList = new System.Windows.Forms.TextBox();
             this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.com_vFieldValue = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -181,7 +193,8 @@
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,7 +206,7 @@
             this.MainListBox.Location = new System.Drawing.Point(3, 17);
             this.MainListBox.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.MainListBox.Name = "MainListBox";
-            this.MainListBox.Size = new System.Drawing.Size(194, 447);
+            this.MainListBox.Size = new System.Drawing.Size(194, 569);
             this.MainListBox.TabIndex = 0;
             this.MainListBox.SelectedIndexChanged += new System.EventHandler(this.manListSelect);
             // 
@@ -203,7 +216,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 817);
+            this.panel1.Size = new System.Drawing.Size(200, 939);
             this.panel1.TabIndex = 2;
             // 
             // panel3
@@ -214,7 +227,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 817);
+            this.panel3.Size = new System.Drawing.Size(200, 939);
             this.panel3.TabIndex = 1;
             // 
             // groupBox7
@@ -223,7 +236,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox7.Location = new System.Drawing.Point(0, 100);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(200, 467);
+            this.groupBox7.Size = new System.Drawing.Size(200, 589);
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "表头";
@@ -263,7 +276,7 @@
             // 
             this.groupBox6.Controls.Add(this.ChartLayoutListBox);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox6.Location = new System.Drawing.Point(0, 567);
+            this.groupBox6.Location = new System.Drawing.Point(0, 689);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(200, 250);
             this.groupBox6.TabIndex = 1;
@@ -288,7 +301,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(200, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1065, 817);
+            this.panel5.Size = new System.Drawing.Size(1399, 939);
             this.panel5.TabIndex = 4;
             // 
             // groupBox2
@@ -298,7 +311,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(180, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(585, 817);
+            this.groupBox2.Size = new System.Drawing.Size(919, 939);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "布局预览界面--不支持操作";
@@ -309,7 +322,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 517);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(579, 297);
+            this.groupBox3.Size = new System.Drawing.Size(913, 419);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "单据相关信息修改";
@@ -323,7 +336,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 17);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(573, 277);
+            this.tabControl1.Size = new System.Drawing.Size(907, 399);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -333,7 +346,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(565, 251);
+            this.tabPage1.Size = new System.Drawing.Size(899, 373);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "单据属性检测";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -357,7 +370,7 @@
             this.shuxingDataGrid.Name = "shuxingDataGrid";
             this.shuxingDataGrid.ReadOnly = true;
             this.shuxingDataGrid.RowTemplate.Height = 23;
-            this.shuxingDataGrid.Size = new System.Drawing.Size(559, 209);
+            this.shuxingDataGrid.Size = new System.Drawing.Size(893, 331);
             this.shuxingDataGrid.TabIndex = 1;
             this.shuxingDataGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.shuxing_doubleClick);
             // 
@@ -441,7 +454,7 @@
             this.panel23.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel23.Location = new System.Drawing.Point(3, 3);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(559, 36);
+            this.panel23.Size = new System.Drawing.Size(893, 36);
             this.panel23.TabIndex = 0;
             // 
             // button2
@@ -456,71 +469,39 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(565, 251);
+            this.tabPage2.Size = new System.Drawing.Size(899, 373);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "属性信息";
+            this.tabPage2.Text = "Com接口";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox4.Controls.Add(this.textBox12);
-            this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Controls.Add(this.vApiId);
-            this.groupBox4.Controls.Add(this.label18);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Controls.Add(this.com_vFieldValue);
+            this.groupBox4.Controls.Add(this.label23);
+            this.groupBox4.Controls.Add(this.panel2);
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(559, 209);
+            this.groupBox4.Size = new System.Drawing.Size(893, 367);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "com接口配置";
             // 
-            // textBox12
+            // tabPage3
             // 
-            this.textBox12.Location = new System.Drawing.Point(306, 60);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(181, 21);
-            this.textBox12.TabIndex = 16;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(247, 69);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 12);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "接口备注";
-            // 
-            // vApiId
-            // 
-            this.vApiId.Location = new System.Drawing.Point(118, 66);
-            this.vApiId.Name = "vApiId";
-            this.vApiId.ReadOnly = true;
-            this.vApiId.Size = new System.Drawing.Size(100, 21);
-            this.vApiId.TabIndex = 14;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(21, 142);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 12);
-            this.label18.TabIndex = 13;
-            this.label18.Text = "接口id";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 21);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "新增";
-            this.button3.UseVisualStyleBackColor = true;
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(899, 373);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "分页3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // mainPanel
             // 
@@ -528,20 +509,21 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainPanel.Location = new System.Drawing.Point(3, 17);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(579, 500);
+            this.mainPanel.Size = new System.Drawing.Size(913, 500);
             this.mainPanel.TabIndex = 2;
             // 
             // rightPanel
             // 
             this.rightPanel.Controls.Add(this.groupBox1);
             this.rightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rightPanel.Location = new System.Drawing.Point(765, 0);
+            this.rightPanel.Location = new System.Drawing.Point(1099, 0);
             this.rightPanel.Name = "rightPanel";
-            this.rightPanel.Size = new System.Drawing.Size(300, 817);
+            this.rightPanel.Size = new System.Drawing.Size(300, 939);
             this.rightPanel.TabIndex = 2;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel24);
             this.groupBox1.Controls.Add(this.panel22);
             this.groupBox1.Controls.Add(this.panel19);
             this.groupBox1.Controls.Add(this.panel4);
@@ -562,7 +544,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 817);
+            this.groupBox1.Size = new System.Drawing.Size(300, 939);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "单据字段属性修改";
@@ -1094,7 +1076,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(180, 817);
+            this.panel6.Size = new System.Drawing.Size(180, 939);
             this.panel6.TabIndex = 0;
             // 
             // dataGridView1
@@ -1126,7 +1108,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(180, 817);
+            this.dataGridView1.Size = new System.Drawing.Size(180, 939);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doubleCilck);
             // 
@@ -1266,50 +1248,192 @@
             this.vtexttype.ReadOnly = true;
             this.vtexttype.Visible = false;
             // 
-            // tableLayoutPanel1
+            // button3
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 321F));
-            this.tableLayoutPanel1.Controls.Add(this.button4, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 17);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(553, 34);
-            this.tableLayoutPanel1.TabIndex = 17;
+            this.button3.Location = new System.Drawing.Point(6, 20);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 21);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "新增";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(84, 3);
+            this.button4.Location = new System.Drawing.Point(104, 19);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(75, 21);
             this.button4.TabIndex = 13;
             this.button4.Text = "保存";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.com_title_vkeyValue);
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.com_IOrderId);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.com_vExpParam);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.com_vRemarks);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.com_vSQL);
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.com_vApiId);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Location = new System.Drawing.Point(3, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(836, 366);
+            this.panel2.TabIndex = 14;
+            // 
+            // com_title_vkeyValue
+            // 
+            this.com_title_vkeyValue.Location = new System.Drawing.Point(59, 36);
+            this.com_title_vkeyValue.Multiline = true;
+            this.com_title_vkeyValue.Name = "com_title_vkeyValue";
+            this.com_title_vkeyValue.Size = new System.Drawing.Size(753, 39);
+            this.com_title_vkeyValue.TabIndex = 14;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1, 39);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "表格抬头";
+            // 
+            // com_IOrderId
+            // 
+            this.com_IOrderId.Location = new System.Drawing.Point(724, 9);
+            this.com_IOrderId.Name = "com_IOrderId";
+            this.com_IOrderId.ReadOnly = true;
+            this.com_IOrderId.Size = new System.Drawing.Size(88, 21);
+            this.com_IOrderId.TabIndex = 12;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(689, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(29, 12);
+            this.label18.TabIndex = 11;
+            this.label18.Text = "排序";
+            // 
+            // com_vExpParam
+            // 
+            this.com_vExpParam.Location = new System.Drawing.Point(483, 9);
+            this.com_vExpParam.Name = "com_vExpParam";
+            this.com_vExpParam.Size = new System.Drawing.Size(181, 21);
+            this.com_vExpParam.TabIndex = 10;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(424, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 12);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "返回参数";
+            // 
+            // com_vRemarks
+            // 
+            this.com_vRemarks.Location = new System.Drawing.Point(243, 9);
+            this.com_vRemarks.Name = "com_vRemarks";
+            this.com_vRemarks.Size = new System.Drawing.Size(181, 21);
+            this.com_vRemarks.TabIndex = 8;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(184, 12);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(53, 12);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "接口备注";
+            // 
+            // com_vSQL
+            // 
+            this.com_vSQL.Location = new System.Drawing.Point(59, 86);
+            this.com_vSQL.Multiline = true;
+            this.com_vSQL.Name = "com_vSQL";
+            this.com_vSQL.Size = new System.Drawing.Size(753, 110);
+            this.com_vSQL.TabIndex = 5;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 89);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(53, 12);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "接口内容";
+            // 
+            // com_vApiId
+            // 
+            this.com_vApiId.Location = new System.Drawing.Point(59, 6);
+            this.com_vApiId.Name = "com_vApiId";
+            this.com_vApiId.ReadOnly = true;
+            this.com_vApiId.Size = new System.Drawing.Size(100, 21);
+            this.com_vApiId.TabIndex = 3;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(12, 9);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(41, 12);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "接口id";
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.messageList);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(3, 725);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(294, 211);
+            this.panel24.TabIndex = 19;
+            // 
+            // messageList
+            // 
+            this.messageList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageList.Location = new System.Drawing.Point(0, 0);
+            this.messageList.Multiline = true;
+            this.messageList.Name = "messageList";
+            this.messageList.ReadOnly = true;
+            this.messageList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.messageList.Size = new System.Drawing.Size(294, 211);
+            this.messageList.TabIndex = 0;
             // 
             // dataLoadBindingSource
             // 
             this.dataLoadBindingSource.DataSource = typeof(PageRederForRX.src.Function.DataLoad);
             // 
-            // tabPage3
+            // com_vFieldValue
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(565, 251);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "分页3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.com_vFieldValue.Location = new System.Drawing.Point(246, 20);
+            this.com_vFieldValue.Name = "com_vFieldValue";
+            this.com_vFieldValue.ReadOnly = true;
+            this.com_vFieldValue.Size = new System.Drawing.Size(100, 21);
+            this.com_vFieldValue.TabIndex = 16;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(187, 22);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(53, 12);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "关联字段";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 817);
+            this.ClientSize = new System.Drawing.Size(1599, 939);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel1);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::PageRederForRX.Properties.Settings.Default, "MainFormName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -1370,7 +1494,10 @@
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1485,14 +1612,26 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox vApiId;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox com_title_vkeyValue;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox com_IOrderId;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox com_vExpParam;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox com_vRemarks;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox com_vSQL;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox com_vApiId;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.TextBox messageList;
+        private System.Windows.Forms.TextBox com_vFieldValue;
+        private System.Windows.Forms.Label label23;
     }
 }
 
