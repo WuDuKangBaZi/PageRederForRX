@@ -1,11 +1,13 @@
 ﻿using PageRederForRX.formSrc;
 using PageRederForRX.src.Function;
+using PageRederForRX.src.LayoutEdit;
 using PageRederTestConsole;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,19 +19,21 @@ namespace PageRederForRX
     {
         DataSet OSDataSet = new DataSet();
         private int com_add_btn = 0;
+        System.Resources.ResourceManager rm = null;
         public Form1()
         {
             InitializeComponent();
-            //此处为窗口初始化操作 可以用来检查一些配置之类的
-            
+            //此处为窗口初始化操作 可以用来检查一些配置之类的.
+            rm = new System.Resources.ResourceManager("PageRederForRX.SqlProperty", Assembly.GetExecutingAssembly());
+
         }
-        #region 加载数据做的操作
+        #region 加载主表的数据
         private void manListSelect(object sender, EventArgs e)
         {
             //选择后调用查询界面
             //MessageBox.Show(MainListBox.SelectedItem.ToString());
             //dataGridView1.DataSource = ds.Tables[0]; // 此处调用完毕后 需要绘制界面了
-            string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,vIsShow,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'";
+            string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,ISNULL(vIsShow, '1') vIsShow ,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'";
             OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
             dataGridView1.DataSource = OSDataSet.Tables[0];
             //设置panel的高度 
@@ -37,9 +41,27 @@ namespace PageRederForRX
             DataSet dsSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
             mainPanel.Height = int.Parse(dsSet.Tables[0].Rows[0][0].ToString());*/
             drawMainView(OSDataSet);
+            getBasiList("");
 
         }
+        #region 加载从表的数据
+        private void chartLayourChange(object sender, EventArgs e)
+        {
+            //选择后调用查询界面
+            //MessageBox.Show(MainListBox.SelectedItem.ToString());
+            //dataGridView1.DataSource = ds.Tables[0]; // 此处调用完毕后 需要绘制界面了
+            string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,vIsShow,vgroup,vChange,vtexttype,vDefault  from TBUDT_ChartLayout where vpid ='{ChartLayoutListBox.SelectedItem}'";
+            OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
+            dataGridView1.DataSource = OSDataSet.Tables[0];
+            //设置panel的高度 
+            /*queryString = $"select vHeight from TBUDT_ModeLayout where vid = '{MainListBox.SelectedItem}'";
+            DataSet dsSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
+            mainPanel.Height = int.Parse(dsSet.Tables[0].Rows[0][0].ToString());*/
+            drawMainView(OSDataSet);
+            getBasiList("");
+        }
         #endregion
+#endregion
         #region 单据属性布局字段修改权限
         private void lockData(bool status)
         {
@@ -120,201 +142,37 @@ namespace PageRederForRX
             foreach (DataRow row in gridViewSet.Tables[0].Rows)
             {
                 int vfrmtype = int.Parse(row[11].ToString());
+                drawTools draw = new drawTools();
+
+                myLable lable = draw.drawlable(row);
+                lable.ibillid = MainListBox.SelectedItem.ToString();
+                lable.DoubleClick += new System.EventHandler(textboxDoubleClike);
+                mainPanel.Controls.Add(lable);
+
                 if (vfrmtype == 0)
                 {
-                    drawTextBox(row);
+
+                    TextBox tb = draw.drawTextBox(row);
+                    mainPanel.Controls.Add(tb);
                 }
                 if (vfrmtype == 1 || vfrmtype == 2)
                 {
-                    drawComBox(row);
+                    ComboBox combo = draw.drawComBox(row);
+                    mainPanel.Controls.Add(combo);
+
+
                 }
                 if (vfrmtype == 3)
                 {
-                    drawDateTimePicker(row);
+                    DateTimePicker dateTimePicker = draw.drawDateTimePicker(row);
+                    mainPanel.Controls.Add(dateTimePicker);
                 }
             }
             mainPanel.Refresh();
 
         }
         #endregion
-        #region 绘制时间选择控件
-        private void drawDateTimePicker(DataRow gridRow)
-        {
-            //数据解析
-            int top_int = int.Parse(gridRow[4].ToString());
-            int left_int = int.Parse(gridRow[5].ToString());
-            int grid_width = int.Parse(gridRow[6].ToString());
-            int grid_height = int.Parse(gridRow[7].ToString());
-            string vColor = gridRow[8].ToString();
-            string vGroundColor = gridRow[9].ToString();
-            //int vfrmtype = int.Parse(gridRow[9].ToString());
-            int vIsShow = 0;// int.Parse(gridRow[10].ToString() == null ? gridRow[10].ToString() : "1");
-            if (gridRow[12].ToString() == null || gridRow[12].ToString() == "")
-            {
-                vIsShow = 1;
-            }
-            else
-            {
-                vIsShow = int.Parse(gridRow[12].ToString());
-            }
-            //绘制 DateTimePicker
-            Label label = drawLabl(gridRow);
-            DateTimePicker tb = new DateTimePicker();
-            tb.Name = gridRow[1].ToString();
-            tb.Width = grid_width - 80;
-            tb.Height = grid_height;
-            tb.Top = top_int;
-            tb.Left = left_int + 80;
-            //tb.ForeColor = stringToColor(vColor);
-            //tb.BackColor = stringToColor(vGroundColor);
-            if (vIsShow == 1)
-            {
-                label.Visible = true;
-                tb.Visible = true;
-            }
-            else
-            {
-                label.Visible = false;
-                tb.Visible = false;
-            }
-            mainPanel.Controls.Add(label);
-            mainPanel.Controls.Add(tb);
-        }
-        #endregion
-        #region 绘制下拉框
-        private void drawComBox(DataRow gridRow)
-        {
-            //数据解析
-            int top_int = int.Parse(gridRow[4].ToString());
-            int left_int = int.Parse(gridRow[5].ToString());
-            int grid_width = int.Parse(gridRow[6].ToString());
-            int grid_height = int.Parse(gridRow[7].ToString());
-            string vColor = gridRow[8].ToString();
-            string vGroundColor = gridRow[9].ToString();
-            //int vfrmtype = int.Parse(gridRow[9].ToString());
-            int vIsShow = 0;// int.Parse(gridRow[10].ToString() == null ? gridRow[10].ToString() : "1");
-            if (gridRow[12].ToString() == null || gridRow[12].ToString() == "")
-            {
-                vIsShow = 1;
-            }
-            else
-            {
-                vIsShow = int.Parse(gridRow[12].ToString());
-            }
-
-            //绘制Label
-            Label label = drawLabl(gridRow);
-            ComboBox tb = new ComboBox();
-            tb.Name = gridRow[1].ToString();
-            tb.Width = grid_width - 80;
-            tb.Height = grid_height;
-            tb.Top = top_int;
-            tb.Left = left_int + 80;
-            //tb.ForeColor = stringToColor(vColor);
-            //tb.BackColor = stringToColor(vGroundColor);
-            
-            if (vIsShow == 1)
-            {
-                label.Visible = true;
-                tb.Visible = true;
-            }
-            else
-            {
-                label.Visible = false;
-                tb.Visible = false;
-            }
-            mainPanel.Controls.Add(label);
-            mainPanel.Controls.Add(tb);
-
-        }
-        #endregion
-        #region 绘制文本框
-        private void drawTextBox(DataRow gridRow)
-        {
-            //获取基础类型
-            int top_int = int.Parse(gridRow[4].ToString());
-            int left_int = int.Parse(gridRow[5].ToString());
-            int grid_width = int.Parse(gridRow[6].ToString());
-            int grid_height = int.Parse(gridRow[7].ToString());
-            string vColor = gridRow[8].ToString();
-            string vGroundColor = gridRow[9].ToString();
-            //int vfrmtype = int.Parse(gridRow[9].ToString());
-            int vIsShow = 0;// int.Parse(gridRow[10].ToString() == null ? gridRow[10].ToString() : "1");
-            if (gridRow[12].ToString() == null || gridRow[12].ToString() == "")
-            {
-                vIsShow = 1;
-            }
-            else
-            {
-                vIsShow = int.Parse(gridRow[12].ToString());
-            }
-
-            //绘制Label
-            Label label = drawLabl(gridRow);
-            /* label.Visible = vIsShow == 0 ? true : false;*/
-            //绘制TextBox
-            TextBox tb = new TextBox();
-            tb.Name = gridRow[1].ToString();
-            tb.Width = grid_width - 80;
-            tb.Height = grid_height;
-            tb.Top = top_int;
-            tb.Left = left_int + 80;
-            
-            //tb.ForeColor = stringToColor(vColor);
-            //tb.BackColor = stringToColor(vGroundColor);
-            if (vIsShow == 1)
-            {
-                label.Visible = true;
-                tb.Visible = true;
-            }
-            else
-            {
-                label.Visible = false;
-                tb.Visible = false;
-            }
-            mainPanel.Controls.Add(label);
-            mainPanel.Controls.Add(tb);
-
-
-        }
-        #endregion
-        #region 绘制Lable 即 每个输入框、下拉框 前面的文字
-        private Label drawLabl(DataRow gridRow)
-        {
-            //获取基础类型
-            int top_int = int.Parse(gridRow[4].ToString());
-            int left_int = int.Parse(gridRow[5].ToString());
-            int grid_width = int.Parse(gridRow[6].ToString());
-            int grid_height = int.Parse(gridRow[7].ToString());
-            string vColor = gridRow[8].ToString();
-            string vGroundColor = gridRow[9].ToString();
-            //int vfrmtype = int.Parse(gridRow[9].ToString());
-            int vIsShow = 0;// int.Parse(gridRow[10].ToString() == null ? gridRow[10].ToString() : "1");
-            if (gridRow[10].ToString() == null || gridRow[10].ToString() == "")
-            {
-                vIsShow = 1;
-            }
-            else
-            {
-                vIsShow = int.Parse(gridRow[10].ToString());
-            }
-
-            //绘制Label
-            myLable label = new myLable();
-            label.Text = gridRow[2].ToString();
-            label.inputName = gridRow[1].ToString();
-            label.ibillid = MainListBox.SelectedItem.ToString();
-            label.fieldType = int.Parse(gridRow["vfrmtype"].ToString());
-            label.Width = 80;
-            label.Height = 25;
-            label.AutoSize = false;
-            label.Top = top_int;
-            label.Left = left_int;
-            label.DoubleClick += new System.EventHandler(textboxDoubleClike);
-            //label.ForeColor = stringToColor(vColor);
-            //label.BackColor = stringToColor(vGroundColor);
-            return label;
-        }
+        #region 字符串转颜色 暂时没用了
         private Color stringToColor(string colorString)
         {
             try
@@ -356,6 +214,10 @@ namespace PageRederForRX
         #region 锁定单据布局属性字段修改 
         private void lockbtn_Click(object sender, EventArgs e)
         {
+            if (textBox2.Text.Length < 1) {
+                MessageBox.Show("未选中任何字段！","错误");
+                return;
+            }
             lockData(true);
         }
         #endregion
@@ -476,21 +338,22 @@ namespace PageRederForRX
 
         }
         #endregion
-        #region 加载主要数据 即 读取布局信息 暂时只读取了主表信息 后续增加读取从表 注意： 并不会去读取 TBUDT_ModeLayout 这张表
+        #region 加载主要数据 即 读取布局信息 主表:TBUDT_ModeLayout 从表   TBUDT_ChartLayout
         private void button1_Click_1(object sender, EventArgs e)
         {
             // 查询主表数据
             MainListBox.Items.Clear();
             loadDefalutComboxSource();
-            DataLoad dl = new DataLoad();
-            List<string> vs = dl.loadMainLayout(textBox11.Text);
-            
-            foreach (string ll in vs)
-            {
-                MainListBox.Items.Add(ll);
-            }
+            MainListBox.Items.AddRange(new DataLoad().loadMainLayout(textBox11.Text).ToArray());
 
+            /* foreach (string ll in vs)
+             {
+                 MainListBox.Items.Add(ll);
+             }*/
+
+            // 获取从表数据
             ChartLayoutListBox.Items.Clear();
+            ChartLayoutListBox.Items.AddRange(new GetLayoutConfig().getChartLayoutList(textBox11.Text).ToArray());
            /* vs = dl.*/
 
         }
@@ -498,8 +361,11 @@ namespace PageRederForRX
         #region 这是给布局预览界面的 标签 添加的自定义双击按钮功能
         private void textboxDoubleClike(object sender, EventArgs e)
         {
+            // 调用查询com接口
             myLable lable = (myLable)sender;
             loadComEdit(lable.inputName,lable.fieldType);
+            //调用查询前段依赖
+            getBasiList($" and vKeyid = '{lable.inputName}'");
             return;
         }
         #endregion
@@ -511,7 +377,6 @@ namespace PageRederForRX
             string querySql = $"select vApiID,vSQL,tba.vRemarks,vExpParam,IOrderId from TBUDT_BasicApiSQL tba" +
                 $" left join TBUDT_BasicAllCtr tbac on tba.vApiID = tbac.vKeyValue " +
                 $"where tbac.vkeyname = 'hzrxvapiid' and tbac.vkeyid = '{vFiledName}' and tbac.ibillid = (select  ibillid from TBUDT_ModeLayout where vid ='{MainListBox.SelectedItem}')";
-            Console.WriteLine(querySql);
             DBUtil dBUtil = new DBUtil();
             try
             {
@@ -570,9 +435,15 @@ namespace PageRederForRX
         #region 全局获取Ibilldid 有的地方不一定有IbillId这个参数 可以用这个方法来根据选择的布局单号获取
         private string getIbilldId() {
 
-            DBUtil db = new DBUtil();
-            DataSet ds = db.Query(db.GetConnection(), $"select  ibillid from TBUDT_ModeLayout where vid ='{MainListBox.SelectedItem}'");
-            return ds.Tables[0].Rows[0][0].ToString();
+            try
+            {
+                DBUtil db = new DBUtil();
+                DataSet ds = db.Query(db.GetConnection(), $"select  ibillid from TBUDT_ModeLayout where vid ='{MainListBox.SelectedItem}'");
+                return ds.Tables[0].Rows[0][0].ToString();
+            }
+            catch (IndexOutOfRangeException) {
+                return "";            
+            }
         }
         #endregion
         #region Com接口的数据保存操作
@@ -677,6 +548,36 @@ namespace PageRederForRX
 
             }
 
+        }
+        #endregion
+
+        #region 单据属性列表获取
+        private void getBasiList(string whereIs)
+        {
+            // sql太长了 直接写到SqlProperty.resx里面去了 然后通过Replace替换掉
+            string Sql = rm.GetString("getBasicSQL");
+            Sql = Sql.Replace("{getIbilldId()}", getIbilldId()).Replace("{whereIs}", whereIs);
+           // Console.WriteLine(Sql);
+
+            //string QuerySQL = $"select ibillid,vType,vKeyid,vKeyName,tgp.name vName,vkeyValue,vHzrxField1,vHzrxField2,tba.IOrderId,vRemarks from TBUDT_BasicAllCtr tba left join TPZJK_GetParamCode tgp on tba.vkeyname = tgp.code where tba.ibillid = '{getIbilldId()}'{whereIs}";
+            DataSet ds = new DBUtil().Query(new DBUtil().GetConnection(), Sql);
+            Basic_dataGridView.DataSource = ds.Tables[0];
+
+        }
+
+
+        #endregion
+
+        #region 单据属性列表双击
+        private void Basic_Double_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            BasicAllCtr bac = new BasicAllCtr();
+            DataGridViewRow dataGridView = Basic_dataGridView.Rows[index];
+            bac.setbasicAllCtr(dataGridView.Cells["Basic_ibillid"].Value.ToString(),dataGridView.Cells["Basic_vType"].Value.ToString(), dataGridView.Cells["Basic_vKeyid"].Value.ToString(), dataGridView.Cells["Basic_vKeyName"].Value.ToString()
+                , dataGridView.Cells["Basic_vKeyName"].Value.ToString(), dataGridView.Cells["Basic_vkeyValue"].Value.ToString()
+                , dataGridView.Cells["Basic_vHzrxField1"].Value.ToString(), dataGridView.Cells["Basic_vHzrxField2"].Value.ToString(), dataGridView.Cells["Basic_IOrderId"].Value.ToString(), dataGridView.Cells["Basic_vRemarks"].Value.ToString());
+            bac.Show();
         }
         #endregion
     }

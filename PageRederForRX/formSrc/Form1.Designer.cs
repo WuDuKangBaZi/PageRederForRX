@@ -154,9 +154,21 @@
             this.label22 = new System.Windows.Forms.Label();
             this.panel24 = new System.Windows.Forms.Panel();
             this.messageList = new System.Windows.Forms.TextBox();
-            this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.com_vFieldValue = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.Basic_dataGridView = new System.Windows.Forms.DataGridView();
+            this.Basic_ibillid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vKeyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vKeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vKeyName_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vHzrxField1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vHzrxField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_IOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -195,6 +207,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel24.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Basic_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -292,6 +306,7 @@
             this.ChartLayoutListBox.Name = "ChartLayoutListBox";
             this.ChartLayoutListBox.Size = new System.Drawing.Size(194, 230);
             this.ChartLayoutListBox.TabIndex = 1;
+            this.ChartLayoutListBox.SelectedIndexChanged += new System.EventHandler(this.chartLayourChange);
             // 
             // panel5
             // 
@@ -332,6 +347,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 17);
             this.tabControl1.Name = "tabControl1";
@@ -1408,10 +1424,6 @@
             this.messageList.Size = new System.Drawing.Size(294, 211);
             this.messageList.TabIndex = 0;
             // 
-            // dataLoadBindingSource
-            // 
-            this.dataLoadBindingSource.DataSource = typeof(PageRederForRX.src.Function.DataLoad);
-            // 
             // com_vFieldValue
             // 
             this.com_vFieldValue.Location = new System.Drawing.Point(246, 20);
@@ -1428,6 +1440,117 @@
             this.label23.Size = new System.Drawing.Size(53, 12);
             this.label23.TabIndex = 15;
             this.label23.Text = "关联字段";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.Basic_dataGridView);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(899, 373);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "单据属性配置";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // Basic_dataGridView
+            // 
+            this.Basic_dataGridView.AllowUserToAddRows = false;
+            this.Basic_dataGridView.AllowUserToDeleteRows = false;
+            this.Basic_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Basic_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Basic_ibillid,
+            this.Basic_vType,
+            this.Basic_vKeyid,
+            this.Basic_vKeyName,
+            this.Basic_vKeyName_name,
+            this.Basic_vkeyValue,
+            this.Basic_vHzrxField1,
+            this.Basic_vHzrxField2,
+            this.Basic_IOrderId,
+            this.Basic_vRemarks});
+            this.Basic_dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Basic_dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.Basic_dataGridView.Name = "Basic_dataGridView";
+            this.Basic_dataGridView.ReadOnly = true;
+            this.Basic_dataGridView.RowTemplate.Height = 23;
+            this.Basic_dataGridView.Size = new System.Drawing.Size(893, 367);
+            this.Basic_dataGridView.TabIndex = 0;
+            this.Basic_dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Basic_Double_Click);
+            // 
+            // Basic_ibillid
+            // 
+            this.Basic_ibillid.DataPropertyName = "ibillid";
+            this.Basic_ibillid.HeaderText = "单据标识";
+            this.Basic_ibillid.Name = "Basic_ibillid";
+            this.Basic_ibillid.ReadOnly = true;
+            // 
+            // Basic_vType
+            // 
+            this.Basic_vType.DataPropertyName = "vType";
+            this.Basic_vType.HeaderText = "vType";
+            this.Basic_vType.Name = "Basic_vType";
+            this.Basic_vType.ReadOnly = true;
+            this.Basic_vType.Visible = false;
+            // 
+            // Basic_vKeyid
+            // 
+            this.Basic_vKeyid.DataPropertyName = "vKeyid";
+            this.Basic_vKeyid.HeaderText = "对应字段";
+            this.Basic_vKeyid.Name = "Basic_vKeyid";
+            this.Basic_vKeyid.ReadOnly = true;
+            // 
+            // Basic_vKeyName
+            // 
+            this.Basic_vKeyName.DataPropertyName = "vKeyName";
+            this.Basic_vKeyName.HeaderText = "依赖关系名称";
+            this.Basic_vKeyName.Name = "Basic_vKeyName";
+            this.Basic_vKeyName.ReadOnly = true;
+            // 
+            // Basic_vKeyName_name
+            // 
+            this.Basic_vKeyName_name.DataPropertyName = "vName";
+            this.Basic_vKeyName_name.HeaderText = "依赖类型";
+            this.Basic_vKeyName_name.Name = "Basic_vKeyName_name";
+            this.Basic_vKeyName_name.ReadOnly = true;
+            // 
+            // Basic_vkeyValue
+            // 
+            this.Basic_vkeyValue.DataPropertyName = "vkeyValue";
+            this.Basic_vkeyValue.HeaderText = "值";
+            this.Basic_vkeyValue.Name = "Basic_vkeyValue";
+            this.Basic_vkeyValue.ReadOnly = true;
+            // 
+            // Basic_vHzrxField1
+            // 
+            this.Basic_vHzrxField1.DataPropertyName = "vHzrxField1";
+            this.Basic_vHzrxField1.HeaderText = "备用字段1";
+            this.Basic_vHzrxField1.Name = "Basic_vHzrxField1";
+            this.Basic_vHzrxField1.ReadOnly = true;
+            // 
+            // Basic_vHzrxField2
+            // 
+            this.Basic_vHzrxField2.DataPropertyName = "vHzrxField2";
+            this.Basic_vHzrxField2.HeaderText = "备用字段2";
+            this.Basic_vHzrxField2.Name = "Basic_vHzrxField2";
+            this.Basic_vHzrxField2.ReadOnly = true;
+            // 
+            // Basic_IOrderId
+            // 
+            this.Basic_IOrderId.DataPropertyName = "IOrderId";
+            this.Basic_IOrderId.HeaderText = "排序id";
+            this.Basic_IOrderId.Name = "Basic_IOrderId";
+            this.Basic_IOrderId.ReadOnly = true;
+            // 
+            // Basic_vRemarks
+            // 
+            this.Basic_vRemarks.DataPropertyName = "vRemarks";
+            this.Basic_vRemarks.HeaderText = "备注";
+            this.Basic_vRemarks.Name = "Basic_vRemarks";
+            this.Basic_vRemarks.ReadOnly = true;
+            // 
+            // dataLoadBindingSource
+            // 
+            this.dataLoadBindingSource.DataSource = typeof(PageRederForRX.src.Function.DataLoad);
             // 
             // Form1
             // 
@@ -1498,6 +1621,8 @@
             this.panel2.PerformLayout();
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Basic_dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -1632,6 +1757,18 @@
         private System.Windows.Forms.TextBox messageList;
         private System.Windows.Forms.TextBox com_vFieldValue;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView Basic_dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_ibillid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyName_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vkeyValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vHzrxField1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vHzrxField2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_IOrderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vRemarks;
     }
 }
 

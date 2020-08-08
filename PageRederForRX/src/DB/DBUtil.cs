@@ -17,13 +17,11 @@ namespace PageRederTestConsole
             {
 
                 string str = PageRederForRX.Properties.Settings.Default.sqlstr;
-                Console.WriteLine(str);
                 sqlConnection = new SqlConnection(str);
                 sqlConnection.Open();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
                 MessageBox.Show("数据库读取错误！");
                 return null;
             }
