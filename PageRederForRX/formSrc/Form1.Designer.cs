@@ -110,8 +110,6 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.messageList = new System.Windows.Forms.TextBox();
             this.panel22 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lockbtn = new System.Windows.Forms.Button();
@@ -122,52 +120,52 @@
             this.button7 = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.bzxs = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.zb = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.sfxs = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.mrz = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.zxsxx = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.wblx = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.bmzh = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.tklx = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.px = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.bjys = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.ztys = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.gd = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.kd = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.sbj = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.zbj = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.zdbs = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.vID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -187,7 +185,37 @@
             this.vIsShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vtexttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.com_title_vkeyValue = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.com_IOrderId = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.com_vExpParam = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.com_vRemarks = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.com_vSQL = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.com_vApiId = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.messageList = new System.Windows.Forms.TextBox();
+            this.com_vFieldValue = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.Basic_dataGridView = new System.Windows.Forms.DataGridView();
+            this.Basic_ibillid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vKeyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vKeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vKeyName_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vkeyValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vHzrxField1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vHzrxField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_IOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Basic_vRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
 
             this.panel1.SuspendLayout();
@@ -217,7 +245,6 @@
 
             this.rightPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel24.SuspendLayout();
             this.panel22.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel19.SuspendLayout();
@@ -238,7 +265,10 @@
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-
+            this.panel2.SuspendLayout();
+            this.panel24.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Basic_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).BeginInit();
 
             this.SuspendLayout();
@@ -574,7 +604,7 @@
             this.groupBox4.Controls.Add(this.label23);
             this.groupBox4.Controls.Add(this.panel2);
             this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.com_);
+            this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(4, 4);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
@@ -1230,7 +1260,7 @@
             // panel19
             // 
             this.panel19.Controls.Add(this.textBox10);
-            this.panel19.Controls.Add(this.bzxs);
+            this.panel19.Controls.Add(this.label14);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel19.Location = new System.Drawing.Point(4, 742);
             this.panel19.Margin = new System.Windows.Forms.Padding(4);
@@ -1246,7 +1276,7 @@
             this.textBox10.Size = new System.Drawing.Size(280, 25);
             this.textBox10.TabIndex = 1;
             // 
-            // bzxs
+            // label14
             // 
 
             this.label14.AutoSize = true;
@@ -1268,7 +1298,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Controls.Add(this.zb);
+            this.panel4.Controls.Add(this.label1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(4, 694);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
@@ -1284,29 +1314,19 @@
             this.textBox1.Size = new System.Drawing.Size(280, 25);
             this.textBox1.TabIndex = 1;
             // 
-            // zb
+            // label1
             // 
-
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 14);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 15);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "组别";
-
-            this.zb.AutoSize = true;
-            this.zb.Location = new System.Drawing.Point(3, 11);
-            this.zb.Name = "zb";
-            this.zb.Size = new System.Drawing.Size(29, 12);
-            this.zb.TabIndex = 0;
-            this.zb.Text = "组别";
-
             // 
             // panel21
             // 
             this.panel21.Controls.Add(this.comboBox1);
-            this.panel21.Controls.Add(this.sfxs);
+            this.panel21.Controls.Add(this.label16);
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel21.Location = new System.Drawing.Point(4, 646);
             this.panel21.Margin = new System.Windows.Forms.Padding(4);
@@ -1324,29 +1344,19 @@
             this.comboBox1.TabIndex = 1;
             this.comboBox1.TabStop = false;
             // 
-            // sfxs
+            // label16
             // 
-
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(4, 14);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Location = new System.Drawing.Point(3, 11);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(67, 15);
+            this.label16.Size = new System.Drawing.Size(53, 12);
             this.label16.TabIndex = 0;
             this.label16.Text = "是否显示";
-
-            this.sfxs.AutoSize = true;
-            this.sfxs.Location = new System.Drawing.Point(3, 11);
-            this.sfxs.Name = "sfxs";
-            this.sfxs.Size = new System.Drawing.Size(53, 12);
-            this.sfxs.TabIndex = 0;
-            this.sfxs.Text = "是否显示";
-
             // 
             // panel20
             // 
             this.panel20.Controls.Add(this.textBox15);
-            this.panel20.Controls.Add(this.mrz);
+            this.panel20.Controls.Add(this.label15);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel20.Location = new System.Drawing.Point(4, 598);
             this.panel20.Margin = new System.Windows.Forms.Padding(4);
@@ -1362,7 +1372,7 @@
             this.textBox15.Size = new System.Drawing.Size(280, 25);
             this.textBox15.TabIndex = 1;
             // 
-            // mrz
+            // label15
             // 
 
             this.label15.AutoSize = true;
@@ -1384,7 +1394,7 @@
             // panel18
             // 
             this.panel18.Controls.Add(this.textBox13);
-            this.panel18.Controls.Add(this.zxsxx);
+            this.panel18.Controls.Add(this.label13);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel18.Location = new System.Drawing.Point(4, 550);
             this.panel18.Margin = new System.Windows.Forms.Padding(4);
@@ -1400,7 +1410,7 @@
             this.textBox13.Size = new System.Drawing.Size(280, 25);
             this.textBox13.TabIndex = 1;
             // 
-            // zxsxx
+            // label13
             // 
 
             this.label13.AutoSize = true;
@@ -1422,7 +1432,7 @@
             // panel17
             // 
             this.panel17.Controls.Add(this.comboBox4);
-            this.panel17.Controls.Add(this.wblx);
+            this.panel17.Controls.Add(this.label12);
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(4, 502);
             this.panel17.Margin = new System.Windows.Forms.Padding(4);
@@ -1443,7 +1453,7 @@
             this.comboBox4.TabIndex = 2;
             this.comboBox4.TabStop = false;
             // 
-            // wblx
+            // label12
             // 
 
             this.label12.AutoSize = true;
@@ -1465,7 +1475,7 @@
             // panel16
             // 
             this.panel16.Controls.Add(this.comboBox3);
-            this.panel16.Controls.Add(this.bmzh);
+            this.panel16.Controls.Add(this.label11);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(4, 454);
             this.panel16.Margin = new System.Windows.Forms.Padding(4);
@@ -1486,29 +1496,19 @@
             this.comboBox3.TabIndex = 2;
             this.comboBox3.TabStop = false;
             // 
-            // bmzh
+            // label11
             // 
-
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 14);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(3, 11);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(67, 15);
+            this.label11.Size = new System.Drawing.Size(53, 12);
             this.label11.TabIndex = 0;
             this.label11.Text = "编码转换";
-
-            this.bmzh.AutoSize = true;
-            this.bmzh.Location = new System.Drawing.Point(3, 11);
-            this.bmzh.Name = "bmzh";
-            this.bmzh.Size = new System.Drawing.Size(53, 12);
-            this.bmzh.TabIndex = 0;
-            this.bmzh.Text = "编码转换";
-
             // 
             // panel15
             // 
             this.panel15.Controls.Add(this.comboBox2);
-            this.panel15.Controls.Add(this.tklx);
+            this.panel15.Controls.Add(this.label10);
             this.panel15.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel15.Location = new System.Drawing.Point(4, 406);
             this.panel15.Margin = new System.Windows.Forms.Padding(4);
@@ -1526,7 +1526,7 @@
             this.comboBox2.TabIndex = 2;
             this.comboBox2.TabStop = false;
             // 
-            // tklx
+            // label10
             // 
 
             this.label10.AutoSize = true;
@@ -1548,7 +1548,7 @@
             // panel14
             // 
             this.panel14.Controls.Add(this.textBox9);
-            this.panel14.Controls.Add(this.px);
+            this.panel14.Controls.Add(this.label9);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(4, 358);
             this.panel14.Margin = new System.Windows.Forms.Padding(4);
@@ -1564,7 +1564,7 @@
             this.textBox9.Size = new System.Drawing.Size(280, 25);
             this.textBox9.TabIndex = 1;
             // 
-            // px
+            // label9
             // 
 
             this.label9.AutoSize = true;
@@ -1586,7 +1586,7 @@
             // panel13
             // 
             this.panel13.Controls.Add(this.textBox8);
-            this.panel13.Controls.Add(this.bjys);
+            this.panel13.Controls.Add(this.label8);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(4, 310);
             this.panel13.Margin = new System.Windows.Forms.Padding(4);
@@ -1602,7 +1602,7 @@
             this.textBox8.Size = new System.Drawing.Size(280, 25);
             this.textBox8.TabIndex = 1;
             // 
-            // bjys
+            // label8
             // 
 
             this.label8.AutoSize = true;
@@ -1624,7 +1624,7 @@
             // panel12
             // 
             this.panel12.Controls.Add(this.textBox7);
-            this.panel12.Controls.Add(this.ztys);
+            this.panel12.Controls.Add(this.label7);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(4, 262);
             this.panel12.Margin = new System.Windows.Forms.Padding(4);
@@ -1640,7 +1640,7 @@
             this.textBox7.Size = new System.Drawing.Size(280, 25);
             this.textBox7.TabIndex = 1;
             // 
-            // ztys
+            // label7
             // 
 
             this.label7.AutoSize = true;
@@ -1662,7 +1662,7 @@
             // panel11
             // 
             this.panel11.Controls.Add(this.textBox6);
-            this.panel11.Controls.Add(this.gd);
+            this.panel11.Controls.Add(this.label6);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(4, 214);
             this.panel11.Margin = new System.Windows.Forms.Padding(4);
@@ -1678,7 +1678,7 @@
             this.textBox6.Size = new System.Drawing.Size(280, 25);
             this.textBox6.TabIndex = 1;
             // 
-            // gd
+            // label6
             // 
 
             this.label6.AutoSize = true;
@@ -1700,7 +1700,7 @@
             // panel10
             // 
             this.panel10.Controls.Add(this.textBox5);
-            this.panel10.Controls.Add(this.kd);
+            this.panel10.Controls.Add(this.label5);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(4, 166);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
@@ -1716,7 +1716,7 @@
             this.textBox5.Size = new System.Drawing.Size(280, 25);
             this.textBox5.TabIndex = 1;
             // 
-            // kd
+            // label5
             // 
 
             this.label5.AutoSize = true;
@@ -1738,7 +1738,7 @@
             // panel9
             // 
             this.panel9.Controls.Add(this.textBox4);
-            this.panel9.Controls.Add(this.sbj);
+            this.panel9.Controls.Add(this.label4);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(4, 118);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
@@ -1754,7 +1754,7 @@
             this.textBox4.Size = new System.Drawing.Size(280, 25);
             this.textBox4.TabIndex = 1;
             // 
-            // sbj
+            // label4
             // 
 
             this.label4.AutoSize = true;
@@ -1776,7 +1776,7 @@
             // panel8
             // 
             this.panel8.Controls.Add(this.textBox3);
-            this.panel8.Controls.Add(this.zbj);
+            this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(4, 70);
             this.panel8.Margin = new System.Windows.Forms.Padding(4);
@@ -1792,7 +1792,7 @@
             this.textBox3.Size = new System.Drawing.Size(280, 25);
             this.textBox3.TabIndex = 1;
             // 
-            // zbj
+            // label3
             // 
 
             this.label3.AutoSize = true;
@@ -1814,7 +1814,7 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.textBox2);
-            this.panel7.Controls.Add(this.zdbs);
+            this.panel7.Controls.Add(this.label2);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(4, 22);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
@@ -1831,7 +1831,7 @@
             this.textBox2.Size = new System.Drawing.Size(280, 25);
             this.textBox2.TabIndex = 1;
             // 
-            // zdbs
+            // label2
             // 
 
             this.label2.AutoSize = true;
@@ -2067,6 +2067,290 @@
             this.vtexttype.Width = 125;
 
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(6, 20);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 21);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "新增";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(104, 19);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 21);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "保存";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.com_title_vkeyValue);
+            this.panel2.Controls.Add(this.label17);
+            this.panel2.Controls.Add(this.com_IOrderId);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.com_vExpParam);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.com_vRemarks);
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.com_vSQL);
+            this.panel2.Controls.Add(this.label21);
+            this.panel2.Controls.Add(this.com_vApiId);
+            this.panel2.Controls.Add(this.label22);
+            this.panel2.Location = new System.Drawing.Point(3, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(836, 366);
+            this.panel2.TabIndex = 14;
+            // 
+            // com_title_vkeyValue
+            // 
+            this.com_title_vkeyValue.Location = new System.Drawing.Point(59, 36);
+            this.com_title_vkeyValue.Multiline = true;
+            this.com_title_vkeyValue.Name = "com_title_vkeyValue";
+            this.com_title_vkeyValue.Size = new System.Drawing.Size(753, 39);
+            this.com_title_vkeyValue.TabIndex = 14;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(1, 39);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 13;
+            this.label17.Text = "表格抬头";
+            // 
+            // com_IOrderId
+            // 
+            this.com_IOrderId.Location = new System.Drawing.Point(724, 9);
+            this.com_IOrderId.Name = "com_IOrderId";
+            this.com_IOrderId.ReadOnly = true;
+            this.com_IOrderId.Size = new System.Drawing.Size(88, 21);
+            this.com_IOrderId.TabIndex = 12;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(689, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(29, 12);
+            this.label18.TabIndex = 11;
+            this.label18.Text = "排序";
+            // 
+            // com_vExpParam
+            // 
+            this.com_vExpParam.Location = new System.Drawing.Point(483, 9);
+            this.com_vExpParam.Name = "com_vExpParam";
+            this.com_vExpParam.Size = new System.Drawing.Size(181, 21);
+            this.com_vExpParam.TabIndex = 10;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(424, 12);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 12);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "返回参数";
+            // 
+            // com_vRemarks
+            // 
+            this.com_vRemarks.Location = new System.Drawing.Point(243, 9);
+            this.com_vRemarks.Name = "com_vRemarks";
+            this.com_vRemarks.Size = new System.Drawing.Size(181, 21);
+            this.com_vRemarks.TabIndex = 8;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(184, 12);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(53, 12);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "接口备注";
+            // 
+            // com_vSQL
+            // 
+            this.com_vSQL.Location = new System.Drawing.Point(59, 86);
+            this.com_vSQL.Multiline = true;
+            this.com_vSQL.Name = "com_vSQL";
+            this.com_vSQL.Size = new System.Drawing.Size(753, 110);
+            this.com_vSQL.TabIndex = 5;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 89);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(53, 12);
+            this.label21.TabIndex = 4;
+            this.label21.Text = "接口内容";
+            // 
+            // com_vApiId
+            // 
+            this.com_vApiId.Location = new System.Drawing.Point(59, 6);
+            this.com_vApiId.Name = "com_vApiId";
+            this.com_vApiId.ReadOnly = true;
+            this.com_vApiId.Size = new System.Drawing.Size(100, 21);
+            this.com_vApiId.TabIndex = 3;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(12, 9);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(41, 12);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "接口id";
+            // 
+            // panel24
+            // 
+            this.panel24.Controls.Add(this.messageList);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(3, 725);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(294, 211);
+            this.panel24.TabIndex = 19;
+            // 
+            // messageList
+            // 
+            this.messageList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.messageList.Location = new System.Drawing.Point(0, 0);
+            this.messageList.Multiline = true;
+            this.messageList.Name = "messageList";
+            this.messageList.ReadOnly = true;
+            this.messageList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.messageList.Size = new System.Drawing.Size(294, 211);
+            this.messageList.TabIndex = 0;
+            // 
+            // com_vFieldValue
+            // 
+            this.com_vFieldValue.Location = new System.Drawing.Point(246, 20);
+            this.com_vFieldValue.Name = "com_vFieldValue";
+            this.com_vFieldValue.ReadOnly = true;
+            this.com_vFieldValue.Size = new System.Drawing.Size(100, 21);
+            this.com_vFieldValue.TabIndex = 16;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(187, 22);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(53, 12);
+            this.label23.TabIndex = 15;
+            this.label23.Text = "关联字段";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.Basic_dataGridView);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(899, 373);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "单据属性配置";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // Basic_dataGridView
+            // 
+            this.Basic_dataGridView.AllowUserToAddRows = false;
+            this.Basic_dataGridView.AllowUserToDeleteRows = false;
+            this.Basic_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Basic_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Basic_ibillid,
+            this.Basic_vType,
+            this.Basic_vKeyid,
+            this.Basic_vKeyName,
+            this.Basic_vKeyName_name,
+            this.Basic_vkeyValue,
+            this.Basic_vHzrxField1,
+            this.Basic_vHzrxField2,
+            this.Basic_IOrderId,
+            this.Basic_vRemarks});
+            this.Basic_dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Basic_dataGridView.Location = new System.Drawing.Point(3, 3);
+            this.Basic_dataGridView.Name = "Basic_dataGridView";
+            this.Basic_dataGridView.ReadOnly = true;
+            this.Basic_dataGridView.RowTemplate.Height = 23;
+            this.Basic_dataGridView.Size = new System.Drawing.Size(893, 367);
+            this.Basic_dataGridView.TabIndex = 0;
+            this.Basic_dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Basic_Double_Click);
+            // 
+            // Basic_ibillid
+            // 
+            this.Basic_ibillid.DataPropertyName = "ibillid";
+            this.Basic_ibillid.HeaderText = "单据标识";
+            this.Basic_ibillid.Name = "Basic_ibillid";
+            this.Basic_ibillid.ReadOnly = true;
+            // 
+            // Basic_vType
+            // 
+            this.Basic_vType.DataPropertyName = "vType";
+            this.Basic_vType.HeaderText = "vType";
+            this.Basic_vType.Name = "Basic_vType";
+            this.Basic_vType.ReadOnly = true;
+            this.Basic_vType.Visible = false;
+            // 
+            // Basic_vKeyid
+            // 
+            this.Basic_vKeyid.DataPropertyName = "vKeyid";
+            this.Basic_vKeyid.HeaderText = "对应字段";
+            this.Basic_vKeyid.Name = "Basic_vKeyid";
+            this.Basic_vKeyid.ReadOnly = true;
+            // 
+            // Basic_vKeyName
+            // 
+            this.Basic_vKeyName.DataPropertyName = "vKeyName";
+            this.Basic_vKeyName.HeaderText = "依赖关系名称";
+            this.Basic_vKeyName.Name = "Basic_vKeyName";
+            this.Basic_vKeyName.ReadOnly = true;
+            // 
+            // Basic_vKeyName_name
+            // 
+            this.Basic_vKeyName_name.DataPropertyName = "vName";
+            this.Basic_vKeyName_name.HeaderText = "依赖类型";
+            this.Basic_vKeyName_name.Name = "Basic_vKeyName_name";
+            this.Basic_vKeyName_name.ReadOnly = true;
+            // 
+            // Basic_vkeyValue
+            // 
+            this.Basic_vkeyValue.DataPropertyName = "vkeyValue";
+            this.Basic_vkeyValue.HeaderText = "值";
+            this.Basic_vkeyValue.Name = "Basic_vkeyValue";
+            this.Basic_vkeyValue.ReadOnly = true;
+            // 
+            // Basic_vHzrxField1
+            // 
+            this.Basic_vHzrxField1.DataPropertyName = "vHzrxField1";
+            this.Basic_vHzrxField1.HeaderText = "备用字段1";
+            this.Basic_vHzrxField1.Name = "Basic_vHzrxField1";
+            this.Basic_vHzrxField1.ReadOnly = true;
+            // 
+            // Basic_vHzrxField2
+            // 
+            this.Basic_vHzrxField2.DataPropertyName = "vHzrxField2";
+            this.Basic_vHzrxField2.HeaderText = "备用字段2";
+            this.Basic_vHzrxField2.Name = "Basic_vHzrxField2";
+            this.Basic_vHzrxField2.ReadOnly = true;
+            // 
+            // Basic_IOrderId
+            // 
+            this.Basic_IOrderId.DataPropertyName = "IOrderId";
+            this.Basic_IOrderId.HeaderText = "排序id";
+            this.Basic_IOrderId.Name = "Basic_IOrderId";
+            this.Basic_IOrderId.ReadOnly = true;
+            // 
+            // Basic_vRemarks
+            // 
+            this.Basic_vRemarks.DataPropertyName = "vRemarks";
+            this.Basic_vRemarks.HeaderText = "备注";
+            this.Basic_vRemarks.Name = "Basic_vRemarks";
+            this.Basic_vRemarks.ReadOnly = true;
+            // 
             // dataLoadBindingSource
             // 
             this.dataLoadBindingSource.DataSource = typeof(PageRederForRX.src.Function.DataLoad);
@@ -2114,8 +2398,6 @@
 
             this.rightPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
@@ -2171,42 +2453,42 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label bjys;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label ztys;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label gd;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label kd;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label sbj;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label zbj;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label zdbs;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label mrz;
+        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Label zxsxx;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Label wblx;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Label bmzh;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label tklx;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label px;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Label sfxs;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.ComboBox comboBox1;
@@ -2215,10 +2497,10 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label bzxs;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label zb;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button lockbtn;
@@ -2269,7 +2551,7 @@
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button com_;
+        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox com_title_vkeyValue;
