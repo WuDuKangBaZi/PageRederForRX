@@ -479,6 +479,7 @@ namespace PageRederForRX
 
         }
         #endregion
+
         #endregion
         #region 加载主要数据 即 读取布局信息 暂时只读取了主表信息 后续增加读取从表 注意： 并不会去读取 TBUDT_ModeLayout 这张表
         private void button1_Click_1(object sender, EventArgs e)
@@ -696,27 +697,6 @@ namespace PageRederForRX
         #region 4.1 赋值及权限 table页 查询按钮点击事件
         private void button5_Click(object sender, EventArgs e)
         {
-            
-        }
-        #endregion
-        #region 4.2 赋值及权限 table页 查询按钮调用方法
-        void queryTBUDT_RoleBillLay()
-        {
-            string querySql = $"select IBillID,vID,vFieldMapName,vExPValue,vFieldValue,vFieldValueType,IOrderID,vOrgID,vIsuse from TBUDT_RoleBillLay where IBillID = (select IBillID from  TBUDT_ModeLayout where vid = '{MainListBox.SelectedItem}')";
-            /*标准的数据库连接写法
-             * DBUtil db = new DBUtil();
-            SqlConnection sqlConnection = db.GetConnection();
-            _ = db.Query(sqlConnection, querySql);*/
-            DataSet ds = new DBUtil().Query(new DBUtil().GetConnection(), querySql);
-            fzqxdataGrid.DataSource = ds.Tables[0];
-        }
-
-        #endregion
-
-        #endregion
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
 
             //加载数据
             if (MainListBox.SelectedItem == null)
@@ -728,7 +708,45 @@ namespace PageRederForRX
             else
             {
                 queryTBUDT_RoleBillLay();
-            }   
+            }
         }
+
+        #endregion
+        #region 4.2 赋值及权限 table页 查询按钮调用方法
+        void queryTBUDT_RoleBillLay()
+        {
+            string querySql = $"select IBillID,vID,vFieldMapName,vExPValue,vFieldValue,vFieldValueType,IOrderID,vOrgID,vIsuse from TBUDT_RoleBillLay where IBillID = (select IBillID from  TBUDT_ModeLayout where vid = '{MainListBox.SelectedItem}')";
+            /*标准的数据库连接写法
+             * DBUtil db = new DBUtil();
+            SqlConnection sqlConnection = db.GetConnection();
+            _ = db.Query(sqlConnection, querySql);*/
+            DataSet ds = new DBUtil().Query(new DBUtil().GetConnection(), querySql);
+            RoleBIllLay_fzqxdataGrid.DataSource = ds.Tables[0];
+        }
+
+        #endregion
+        #region 赋值及权限table页 表格双击事件
+        private void shuxing_doubleClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+            //双击
+            int rowIndex = e.RowIndex;
+            BillChkStand stand = new BillChkStand();
+            stand.IBillId = shuxingDataGrid.Rows[rowIndex].Cells["IBillId"].Value.ToString();
+            stand.VOrgID = shuxingDataGrid.Rows[rowIndex].Cells["vOrgID"].Value.ToString();
+            stand.VID = shuxingDataGrid.Rows[rowIndex].Cells["cvID"].Value.ToString();
+            stand.VCheckType = shuxingDataGrid.Rows[rowIndex].Cells["vCheckType"].Value.ToString();
+            stand.VHint = shuxingDataGrid.Rows[rowIndex].Cells["vHint"].Value.ToString();
+            stand.VExPValue = shuxingDataGrid.Rows[rowIndex].Cells["vExPValue"].Value.ToString();
+            stand.VDicID = shuxingDataGrid.Rows[rowIndex].Cells["vDicID"].Value.ToString();
+            stand.IOrderID = shuxingDataGrid.Rows[rowIndex].Cells["cIOrderID"].Value.ToString();
+            stand.Vtestvalue = shuxingDataGrid.Rows[rowIndex].Cells["vtestvalue"].Value.ToString();
+            stand.VRemarks = shuxingDataGrid.Rows[rowIndex].Cells["vRemarks"].Value.ToString();
+            stand.Show();
+
+        }
+        #endregion
+
+        #endregion
+
     }
 }

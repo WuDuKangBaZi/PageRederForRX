@@ -75,6 +75,21 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.RoleBillLay_panel1 = new System.Windows.Forms.Panel();
+            this.RoleBIllLay_panel3 = new System.Windows.Forms.Panel();
+            this.RoleBIllLay_fzqxdataGrid = new System.Windows.Forms.DataGridView();
+            this.关联单据 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.单据唯一标识 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.表达式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.赋值类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.赋值 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.排序 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.置灰 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.集团ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleBIllLay_panel2 = new System.Windows.Forms.Panel();
+            this.RoleBillLay_button1 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -155,22 +170,6 @@
             this.vIsShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vtexttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.fzqxdataGrid = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.关联单据 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.单据唯一标识 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.字段名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.表达式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.赋值类型 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.赋值 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.排序 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.置灰 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.集团ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -187,6 +186,10 @@
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.RoleBillLay_panel1.SuspendLayout();
+            this.RoleBIllLay_panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RoleBIllLay_fzqxdataGrid)).BeginInit();
+            this.RoleBIllLay_panel2.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel24.SuspendLayout();
@@ -210,11 +213,6 @@
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel25.SuspendLayout();
-            this.panel26.SuspendLayout();
-            this.panel27.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fzqxdataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // MainListBox
@@ -734,7 +732,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.panel25);
+            this.tabPage3.Controls.Add(this.RoleBillLay_panel1);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
@@ -742,6 +740,159 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "赋值及权限";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // RoleBillLay_panel1
+            // 
+            this.RoleBillLay_panel1.Controls.Add(this.RoleBIllLay_panel3);
+            this.RoleBillLay_panel1.Controls.Add(this.RoleBIllLay_panel2);
+            this.RoleBillLay_panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoleBillLay_panel1.Location = new System.Drawing.Point(0, 0);
+            this.RoleBillLay_panel1.Name = "RoleBillLay_panel1";
+            this.RoleBillLay_panel1.Size = new System.Drawing.Size(1201, 468);
+            this.RoleBillLay_panel1.TabIndex = 0;
+            // 
+            // RoleBIllLay_panel3
+            // 
+            this.RoleBIllLay_panel3.Controls.Add(this.RoleBIllLay_fzqxdataGrid);
+            this.RoleBIllLay_panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoleBIllLay_panel3.Location = new System.Drawing.Point(0, 48);
+            this.RoleBIllLay_panel3.Name = "RoleBIllLay_panel3";
+            this.RoleBIllLay_panel3.Size = new System.Drawing.Size(1201, 420);
+            this.RoleBIllLay_panel3.TabIndex = 1;
+            // 
+            // RoleBIllLay_fzqxdataGrid
+            // 
+            this.RoleBIllLay_fzqxdataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RoleBIllLay_fzqxdataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.关联单据,
+            this.单据唯一标识,
+            this.字段名,
+            this.表达式,
+            this.赋值类型,
+            this.赋值,
+            this.排序,
+            this.置灰,
+            this.集团ID});
+            this.RoleBIllLay_fzqxdataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RoleBIllLay_fzqxdataGrid.Location = new System.Drawing.Point(0, 0);
+            this.RoleBIllLay_fzqxdataGrid.Name = "RoleBIllLay_fzqxdataGrid";
+            this.RoleBIllLay_fzqxdataGrid.ReadOnly = true;
+            this.RoleBIllLay_fzqxdataGrid.RowHeadersWidth = 51;
+            this.RoleBIllLay_fzqxdataGrid.RowTemplate.Height = 27;
+            this.RoleBIllLay_fzqxdataGrid.Size = new System.Drawing.Size(1201, 420);
+            this.RoleBIllLay_fzqxdataGrid.TabIndex = 1;
+            // 
+            // 关联单据
+            // 
+            this.关联单据.DataPropertyName = "IBILLID";
+            this.关联单据.HeaderText = "关联单据";
+            this.关联单据.MinimumWidth = 6;
+            this.关联单据.Name = "关联单据";
+            this.关联单据.ReadOnly = true;
+            this.关联单据.Width = 125;
+            // 
+            // 单据唯一标识
+            // 
+            this.单据唯一标识.DataPropertyName = "VID";
+            this.单据唯一标识.HeaderText = "单据唯一标识";
+            this.单据唯一标识.MinimumWidth = 6;
+            this.单据唯一标识.Name = "单据唯一标识";
+            this.单据唯一标识.ReadOnly = true;
+            this.单据唯一标识.Visible = false;
+            this.单据唯一标识.Width = 125;
+            // 
+            // 字段名
+            // 
+            this.字段名.DataPropertyName = "VFIELDMAPNAME";
+            this.字段名.HeaderText = "字段名";
+            this.字段名.MinimumWidth = 6;
+            this.字段名.Name = "字段名";
+            this.字段名.ReadOnly = true;
+            this.字段名.Width = 125;
+            // 
+            // 表达式
+            // 
+            this.表达式.DataPropertyName = "VEXPVALUE";
+            this.表达式.HeaderText = "表达式";
+            this.表达式.MinimumWidth = 6;
+            this.表达式.Name = "表达式";
+            this.表达式.ReadOnly = true;
+            this.表达式.Width = 125;
+            // 
+            // 赋值类型
+            // 
+            this.赋值类型.DataPropertyName = "VFIELDVALUETYPE";
+            this.赋值类型.HeaderText = "赋值类型";
+            this.赋值类型.MinimumWidth = 6;
+            this.赋值类型.Name = "赋值类型";
+            this.赋值类型.ReadOnly = true;
+            this.赋值类型.Width = 125;
+            // 
+            // 赋值
+            // 
+            this.赋值.DataPropertyName = "VFIELDVALUE";
+            this.赋值.HeaderText = "赋值";
+            this.赋值.MinimumWidth = 6;
+            this.赋值.Name = "赋值";
+            this.赋值.ReadOnly = true;
+            this.赋值.Width = 125;
+            // 
+            // 排序
+            // 
+            this.排序.DataPropertyName = "IORDERID";
+            this.排序.HeaderText = "排序";
+            this.排序.MinimumWidth = 6;
+            this.排序.Name = "排序";
+            this.排序.ReadOnly = true;
+            this.排序.Width = 125;
+            // 
+            // 置灰
+            // 
+            this.置灰.DataPropertyName = "VISUSE";
+            this.置灰.HeaderText = "置灰";
+            this.置灰.MinimumWidth = 6;
+            this.置灰.Name = "置灰";
+            this.置灰.ReadOnly = true;
+            this.置灰.Width = 125;
+            // 
+            // 集团ID
+            // 
+            this.集团ID.DataPropertyName = "VORGID";
+            this.集团ID.HeaderText = "集团ID";
+            this.集团ID.MinimumWidth = 6;
+            this.集团ID.Name = "集团ID";
+            this.集团ID.ReadOnly = true;
+            this.集团ID.Width = 125;
+            // 
+            // RoleBIllLay_panel2
+            // 
+            this.RoleBIllLay_panel2.Controls.Add(this.RoleBillLay_button1);
+            this.RoleBIllLay_panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RoleBIllLay_panel2.Location = new System.Drawing.Point(0, 0);
+            this.RoleBIllLay_panel2.Name = "RoleBIllLay_panel2";
+            this.RoleBIllLay_panel2.Size = new System.Drawing.Size(1201, 48);
+            this.RoleBIllLay_panel2.TabIndex = 0;
+            // 
+            // RoleBillLay_button1
+            // 
+            this.RoleBillLay_button1.Location = new System.Drawing.Point(15, 12);
+            this.RoleBillLay_button1.Margin = new System.Windows.Forms.Padding(4);
+            this.RoleBillLay_button1.Name = "RoleBillLay_button1";
+            this.RoleBillLay_button1.Size = new System.Drawing.Size(100, 29);
+            this.RoleBillLay_button1.TabIndex = 1;
+            this.RoleBillLay_button1.Text = "加载数据";
+            this.RoleBillLay_button1.UseVisualStyleBackColor = true;
+            this.RoleBillLay_button1.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1201, 468);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // mainPanel
             // 
@@ -1603,170 +1754,6 @@
             this.vtexttype.Visible = false;
             this.vtexttype.Width = 125;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1201, 468);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.panel27);
-            this.panel25.Controls.Add(this.panel26);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(0, 0);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(1201, 468);
-            this.panel25.TabIndex = 0;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(15, 12);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 29);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "加载数据";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
-            // panel26
-            // 
-            this.panel26.Controls.Add(this.button5);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel26.Location = new System.Drawing.Point(0, 0);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(1201, 48);
-            this.panel26.TabIndex = 0;
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.fzqxdataGrid);
-            this.panel27.Controls.Add(this.dataGridView2);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel27.Location = new System.Drawing.Point(0, 48);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(1201, 420);
-            this.panel27.TabIndex = 1;
-            // 
-            // fzqxdataGrid
-            // 
-            this.fzqxdataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.fzqxdataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.关联单据,
-            this.单据唯一标识,
-            this.字段名,
-            this.表达式,
-            this.赋值类型,
-            this.赋值,
-            this.排序,
-            this.置灰,
-            this.集团ID});
-            this.fzqxdataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fzqxdataGrid.Location = new System.Drawing.Point(0, 0);
-            this.fzqxdataGrid.Name = "fzqxdataGrid";
-            this.fzqxdataGrid.ReadOnly = true;
-            this.fzqxdataGrid.RowHeadersWidth = 51;
-            this.fzqxdataGrid.RowTemplate.Height = 27;
-            this.fzqxdataGrid.Size = new System.Drawing.Size(1201, 420);
-            this.fzqxdataGrid.TabIndex = 1;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 142);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 27;
-            this.dataGridView2.Size = new System.Drawing.Size(1161, 278);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // 关联单据
-            // 
-            this.关联单据.DataPropertyName = "IBILLID";
-            this.关联单据.HeaderText = "关联单据";
-            this.关联单据.MinimumWidth = 6;
-            this.关联单据.Name = "关联单据";
-            this.关联单据.ReadOnly = true;
-            this.关联单据.Width = 125;
-            // 
-            // 单据唯一标识
-            // 
-            this.单据唯一标识.DataPropertyName = "VID";
-            this.单据唯一标识.HeaderText = "单据唯一标识";
-            this.单据唯一标识.MinimumWidth = 6;
-            this.单据唯一标识.Name = "单据唯一标识";
-            this.单据唯一标识.ReadOnly = true;
-            this.单据唯一标识.Visible = false;
-            this.单据唯一标识.Width = 125;
-            // 
-            // 字段名
-            // 
-            this.字段名.DataPropertyName = "VFIELDMAPNAME";
-            this.字段名.HeaderText = "字段名";
-            this.字段名.MinimumWidth = 6;
-            this.字段名.Name = "字段名";
-            this.字段名.ReadOnly = true;
-            this.字段名.Width = 125;
-            // 
-            // 表达式
-            // 
-            this.表达式.DataPropertyName = "VEXPVALUE";
-            this.表达式.HeaderText = "表达式";
-            this.表达式.MinimumWidth = 6;
-            this.表达式.Name = "表达式";
-            this.表达式.ReadOnly = true;
-            this.表达式.Width = 125;
-            // 
-            // 赋值类型
-            // 
-            this.赋值类型.DataPropertyName = "VFIELDVALUETYPE";
-            this.赋值类型.HeaderText = "赋值类型";
-            this.赋值类型.MinimumWidth = 6;
-            this.赋值类型.Name = "赋值类型";
-            this.赋值类型.ReadOnly = true;
-            this.赋值类型.Width = 125;
-            // 
-            // 赋值
-            // 
-            this.赋值.DataPropertyName = "VFIELDVALUE";
-            this.赋值.HeaderText = "赋值";
-            this.赋值.MinimumWidth = 6;
-            this.赋值.Name = "赋值";
-            this.赋值.ReadOnly = true;
-            this.赋值.Width = 125;
-            // 
-            // 排序
-            // 
-            this.排序.DataPropertyName = "IORDERID";
-            this.排序.HeaderText = "排序";
-            this.排序.MinimumWidth = 6;
-            this.排序.Name = "排序";
-            this.排序.ReadOnly = true;
-            this.排序.Width = 125;
-            // 
-            // 置灰
-            // 
-            this.置灰.DataPropertyName = "VISUSE";
-            this.置灰.HeaderText = "置灰";
-            this.置灰.MinimumWidth = 6;
-            this.置灰.Name = "置灰";
-            this.置灰.ReadOnly = true;
-            this.置灰.Width = 125;
-            // 
-            // 集团ID
-            // 
-            this.集团ID.DataPropertyName = "VORGID";
-            this.集团ID.HeaderText = "集团ID";
-            this.集团ID.MinimumWidth = 6;
-            this.集团ID.Name = "集团ID";
-            this.集团ID.ReadOnly = true;
-            this.集团ID.Width = 125;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1798,6 +1785,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.RoleBillLay_panel1.ResumeLayout(false);
+            this.RoleBIllLay_panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RoleBIllLay_fzqxdataGrid)).EndInit();
+            this.RoleBIllLay_panel2.ResumeLayout(false);
             this.rightPanel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
@@ -1838,11 +1829,6 @@
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel25.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.fzqxdataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1975,12 +1961,11 @@
         private System.Windows.Forms.TextBox messageList;
         private System.Windows.Forms.TextBox com_vFieldValue;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.DataGridView fzqxdataGrid;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel RoleBillLay_panel1;
+        private System.Windows.Forms.Panel RoleBIllLay_panel3;
+        private System.Windows.Forms.DataGridView RoleBIllLay_fzqxdataGrid;
+        private System.Windows.Forms.Panel RoleBIllLay_panel2;
+        private System.Windows.Forms.Button RoleBillLay_button1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridViewTextBoxColumn 关联单据;
         private System.Windows.Forms.DataGridViewTextBoxColumn 单据唯一标识;
