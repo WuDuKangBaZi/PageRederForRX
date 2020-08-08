@@ -7,11 +7,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
-using System.Windows.Threading;
 
 namespace PageRederForRX
 {
@@ -23,6 +24,7 @@ namespace PageRederForRX
         public Form1()
         {
             InitializeComponent();
+
             //此处为窗口初始化操作 可以用来检查一些配置之类的.
             rm = new System.Resources.ResourceManager("PageRederForRX.SqlProperty", Assembly.GetExecutingAssembly());
 
@@ -172,7 +174,9 @@ namespace PageRederForRX
 
         }
         #endregion
+
         #region 字符串转颜色 暂时没用了
+
         private Color stringToColor(string colorString)
         {
             try
@@ -293,6 +297,7 @@ namespace PageRederForRX
             }
         }
         #endregion
+        #region 1.单据属性配置台
         #region 单据属性 table页 查询按钮事件 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -301,7 +306,7 @@ namespace PageRederForRX
             {
                 //未选中
                 MessageBox.Show("未选中任何单据！");
-                
+
             }
             else
             {
@@ -309,10 +314,15 @@ namespace PageRederForRX
             }
         }
         #endregion
+
         #region 单据属性 table页 查询按钮调用方法
         void queryTBUDT_BillChkStand()
         {
             string querySql = $"select IBillId,vOrgID,vID,vCheckType,vHint,vExPValue,vDicID,IOrderID,vtestvalue,vRemarks from TBUDT_BillChkStand where IBillID = (select IBillID from  TBUDT_ModeLayout where vid = '{MainListBox.SelectedItem}')";
+            /*标准的数据库连接写法
+             * DBUtil db = new DBUtil();
+            SqlConnection sqlConnection = db.GetConnection();
+            _ = db.Query(sqlConnection, querySql);*/
             DataSet ds = new DBUtil().Query(new DBUtil().GetConnection(), querySql);
             shuxingDataGrid.DataSource = ds.Tables[0];
 
@@ -338,13 +348,17 @@ namespace PageRederForRX
 
         }
         #endregion
+
         #region 加载主要数据 即 读取布局信息 主表:TBUDT_ModeLayout 从表   TBUDT_ChartLayout
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             // 查询主表数据
             MainListBox.Items.Clear();
             loadDefalutComboxSource();
+
             MainListBox.Items.AddRange(new DataLoad().loadMainLayout(textBox11.Text).ToArray());
+
 
             /* foreach (string ll in vs)
              {
@@ -353,8 +367,10 @@ namespace PageRederForRX
 
             // 获取从表数据
             ChartLayoutListBox.Items.Clear();
+
             ChartLayoutListBox.Items.AddRange(new GetLayoutConfig().getChartLayoutList(textBox11.Text).ToArray());
            /* vs = dl.*/
+
 
         }
         #endregion
@@ -363,14 +379,18 @@ namespace PageRederForRX
         {
             // 调用查询com接口
             myLable lable = (myLable)sender;
+
             loadComEdit(lable.inputName,lable.fieldType);
             //调用查询前段依赖
             getBasiList($" and vKeyid = '{lable.inputName}'");
+
             return;
         }
         #endregion
+        #region 2.com接口配置台
         #region 加载Com接口布局 Table页数据
-        private void loadComEdit(string vFiledName,int fieldType) {
+        private void loadComEdit(string vFiledName, int fieldType)
+        {
             com_vApiId.ReadOnly = true;
             com_IOrderId.ReadOnly = true;
             com_vFieldValue.Text = vFiledName;
@@ -395,13 +415,15 @@ namespace PageRederForRX
                     com_title_vkeyValue.Text = ds.Tables[0].Rows[0][0].ToString();
 
                 }
-                else{
+                else
+                {
                     com_title_vkeyValue.Text = "";
-                    
+
 
                 }
             }
-            catch (IndexOutOfRangeException) {
+            catch (IndexOutOfRangeException)
+            {
                 //此处捕获的是 查询com接口不出数据 意思就是这一段没有com接口 所以 执行点击新增的功能 
                 addBtn();
             }
@@ -417,10 +439,11 @@ namespace PageRederForRX
         }
         #endregion
         #region com接口的新增按钮调用的方法 
-        private void addBtn() {
+        private void addBtn()
+        {
             com_add_btn = 1;
             com_vApiId.ReadOnly = false;
-           // com_IOrderId.ReadOnly = false;
+            // com_IOrderId.ReadOnly = false;
             string querySql = $"select max(IOrderID)+1 from TBUDT_BasicAllCtr where ibillid = (select  ibillid from TBUDT_ModeLayout where vid ='{MainListBox.SelectedItem}')";
             DBUtil db = new DBUtil();
             com_IOrderId.Text = db.Query(new DBUtil().GetConnection(), querySql).Tables[0].Rows[0][0].ToString();
@@ -432,20 +455,7 @@ namespace PageRederForRX
             com_title_vkeyValue.ReadOnly = false;
         }
         #endregion
-        #region 全局获取Ibilldid 有的地方不一定有IbillId这个参数 可以用这个方法来根据选择的布局单号获取
-        private string getIbilldId() {
 
-            try
-            {
-                DBUtil db = new DBUtil();
-                DataSet ds = db.Query(db.GetConnection(), $"select  ibillid from TBUDT_ModeLayout where vid ='{MainListBox.SelectedItem}'");
-                return ds.Tables[0].Rows[0][0].ToString();
-            }
-            catch (IndexOutOfRangeException) {
-                return "";            
-            }
-        }
-        #endregion
         #region Com接口的数据保存操作
 
         private void button4_Click(object sender, EventArgs e)
@@ -458,7 +468,7 @@ namespace PageRederForRX
                 //更新前数据处理 针对vSQL.Text内容处理
                 string vsql = com_vSQL.Text.Replace("'", "''");
 
-                
+
                 SqlConnection cnn = new DBUtil().GetConnection();
                 SqlCommand cmd = new SqlCommand();
                 SqlTransaction transaction = null;
@@ -492,7 +502,7 @@ namespace PageRederForRX
                 catch (Exception ex)
                 {
                     // transaction.Rollback(); 回滚操作 在进入到cath 后回滚update或者insert 避免因为出现错误而导致数据异常
-                    
+
                     transaction.Rollback();
                     MessageBox.Show("保存失败！", "错误");
                     cnn.Close();
@@ -500,7 +510,7 @@ namespace PageRederForRX
                 }
 
             }
-            else if(com_add_btn == 1)
+            else if (com_add_btn == 1)
             {
                 // insert 
                 string vsql = com_vSQL.Text.Replace("'", "''");
@@ -514,7 +524,7 @@ namespace PageRederForRX
                     cmd.Transaction = transaction;
                     cmd.Connection = cnn;
 
-                    
+
 
                     string up_SQL = $"insert into tbudt_basicApiSql (vApiID,vSQL,vRemarks,vSQLType,vExpParam,vOrgID)values ('{com_vApiId.Text}','{com_vSQL.Text}','{com_vRemarks.Text}',0,'{com_vExpParam.Text}',0)";
                     cmd.CommandType = CommandType.Text;
@@ -530,7 +540,7 @@ namespace PageRederForRX
                     cmd.CommandText = $"insert into TBUDT_BasicListCap (IBILLID,vtype,vkeyid,vkeyname,vKeyValue,iorderid,VORGID,vDicID) VALUES('{getIbilldId()}',3,'{com_vFieldValue.Text}','listcaptionarr','{textBox1.Text}','{com_IOrderId.Text}',0,'hdata')"; ;
                     cmd.ExecuteNonQuery();
 
-                    
+
                     transaction.Commit();
                     //queryComInterface();
                     MessageBox.Show("更新成功！");
@@ -538,7 +548,7 @@ namespace PageRederForRX
                 }
                 catch (Exception ex)
                 {
-                    
+
                     transaction.Rollback();
                     MessageBox.Show("保存失败！", "错误");
                     cnn.Close();
@@ -550,6 +560,75 @@ namespace PageRederForRX
 
         }
         #endregion
+
+        #endregion
+        #region 全局获取Ibilldid 有的地方不一定有IbillId这个参数 可以用这个方法来根据选择的布局单号获取
+        private string getIbilldId()
+        {
+
+            DBUtil db = new DBUtil();
+            DataSet ds = db.Query(db.GetConnection(), $"select  ibillid from TBUDT_ModeLayout where vid ='{MainListBox.SelectedItem}'");
+            return ds.Tables[0].Rows[0][0].ToString();
+        }
+        #endregion
+
+        #region 4.赋值及权限
+
+        #region 4.1 赋值及权限 table页 查询按钮点击事件
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+            //加载数据
+            if (MainListBox.SelectedItem == null)
+            {
+                //未选中
+                MessageBox.Show("未选中任何单据！");
+
+            }
+            else
+            {
+                queryTBUDT_RoleBillLay();
+            }
+        }
+
+        #endregion
+        #region 4.2 赋值及权限 table页 查询按钮调用方法
+        void queryTBUDT_RoleBillLay()
+        {
+            string querySql = $"select IBillID,vID,vFieldMapName,vExPValue,vFieldValue,vFieldValueType,IOrderID,vOrgID,vIsuse from TBUDT_RoleBillLay where IBillID = (select IBillID from  TBUDT_ModeLayout where vid = '{MainListBox.SelectedItem}')";
+            /*标准的数据库连接写法
+             * DBUtil db = new DBUtil();
+            SqlConnection sqlConnection = db.GetConnection();
+            _ = db.Query(sqlConnection, querySql);*/
+            DataSet ds = new DBUtil().Query(new DBUtil().GetConnection(), querySql);
+            RoleBIllLay_fzqxdataGrid.DataSource = ds.Tables[0];
+        }
+
+        #endregion
+        #region 赋值及权限table页 表格双击事件
+        private void shuxing_doubleClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+            //双击
+            int rowIndex = e.RowIndex;
+            BillChkStand stand = new BillChkStand();
+            stand.IBillId = shuxingDataGrid.Rows[rowIndex].Cells["IBillId"].Value.ToString();
+            stand.VOrgID = shuxingDataGrid.Rows[rowIndex].Cells["vOrgID"].Value.ToString();
+            stand.VID = shuxingDataGrid.Rows[rowIndex].Cells["cvID"].Value.ToString();
+            stand.VCheckType = shuxingDataGrid.Rows[rowIndex].Cells["vCheckType"].Value.ToString();
+            stand.VHint = shuxingDataGrid.Rows[rowIndex].Cells["vHint"].Value.ToString();
+            stand.VExPValue = shuxingDataGrid.Rows[rowIndex].Cells["vExPValue"].Value.ToString();
+            stand.VDicID = shuxingDataGrid.Rows[rowIndex].Cells["vDicID"].Value.ToString();
+            stand.IOrderID = shuxingDataGrid.Rows[rowIndex].Cells["cIOrderID"].Value.ToString();
+            stand.Vtestvalue = shuxingDataGrid.Rows[rowIndex].Cells["vtestvalue"].Value.ToString();
+            stand.VRemarks = shuxingDataGrid.Rows[rowIndex].Cells["vRemarks"].Value.ToString();
+            stand.Show();
+
+        }
+        #endregion
+
+        #endregion
+
+
 
         #region 单据属性列表获取
         private void getBasiList(string whereIs)
@@ -580,5 +659,6 @@ namespace PageRederForRX
             bac.Show();
         }
         #endregion
+
     }
 }
