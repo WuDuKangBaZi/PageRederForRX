@@ -35,7 +35,6 @@ namespace PageRederForRX.src.Function
         public BindingSource getparamcode(string vtypeid) {
             Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
             string querySql = $"select code,name from tpzjk_getparamcode where typeid = '{vtypeid}'";
-            Console.WriteLine(querySql);
             DBUtil db = new DBUtil();
             SqlConnection sqlConnection = db.GetConnection();
             DataSet ds = db.Query(sqlConnection,querySql);
