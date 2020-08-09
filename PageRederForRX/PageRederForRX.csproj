@@ -83,7 +83,8 @@
     <Compile Include="src\Function\myLable.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="src\LayoutEdit\drawTools.cs" />
+    <Compile Include="src\LayoutEdit\drawChartLayout.cs" />
+    <Compile Include="src\LayoutEdit\drawEditLayout.cs" />
     <EmbeddedResource Include="formSrc\BasicAllCtr.resx">
       <DependentUpon>BasicAllCtr.cs</DependentUpon>
     </EmbeddedResource>

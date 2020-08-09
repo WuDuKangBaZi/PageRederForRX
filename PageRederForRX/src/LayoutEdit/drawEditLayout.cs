@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace PageRederForRX.src.LayoutEdit
 {
-    class drawTools
+    class drawEditLayout
     {
         //绘制工具集合 
         public TextBox drawTextBox(DataRow gridRow)

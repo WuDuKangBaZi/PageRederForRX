@@ -18,6 +18,7 @@ namespace PageRederTestConsole
 
                 string str = PageRederForRX.Properties.Settings.Default.sqlstr;
                 sqlConnection = new SqlConnection(str);
+                
                 sqlConnection.Open();
             }
             catch (Exception e)
@@ -42,6 +43,7 @@ namespace PageRederTestConsole
         public DataSet Query(SqlConnection connection, string sSql)
         {
             SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandTimeout = 5;
             sqlCommand.Connection = connection;
             sqlCommand.CommandText = sSql;
             var re = sqlCommand.ExecuteNonQuery();
@@ -68,6 +70,7 @@ namespace PageRederTestConsole
                     sqlConnection.Open();
                 }
                 SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.CommandTimeout = 5;
                 sqlCommand.CommandText = sSQL;
                 sqlCommand.Connection = sqlConnection;
                 return sqlCommand.ExecuteNonQuery();

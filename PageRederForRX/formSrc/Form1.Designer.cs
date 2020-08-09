@@ -93,6 +93,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.Basic_dataGridView = new System.Windows.Forms.DataGridView();
             this.Basic_ibillid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TableName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Basic_vType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Basic_vKeyid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Basic_vKeyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,6 +103,7 @@
             this.Basic_vHzrxField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Basic_IOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Basic_vRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_panel = new System.Windows.Forms.FlowLayoutPanel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -164,6 +166,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.ChartLayout_dataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.vID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vDefault = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -183,6 +186,24 @@
             this.vChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vtexttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ChartLayout_vID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vPID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vFieldCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vFieldName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vHeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vIsShow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vAlign = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_IOrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vDraj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vGroundColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vOrgID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vfrmtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vtexttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vtotalrow = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vtotalrowtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChartLayout_vgroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -227,6 +248,7 @@
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ChartLayout_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -341,6 +363,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.ChartLayout_panel);
             this.groupBox2.Controls.Add(this.mainPanel);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(180, 0);
@@ -353,8 +376,8 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tabControl1);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 517);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 260);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(913, 419);
             this.groupBox3.TabIndex = 3;
@@ -862,6 +885,7 @@
             this.Basic_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Basic_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Basic_ibillid,
+            this.TableName,
             this.Basic_vType,
             this.Basic_vKeyid,
             this.Basic_vKeyName,
@@ -878,7 +902,7 @@
             this.Basic_dataGridView.RowTemplate.Height = 23;
             this.Basic_dataGridView.Size = new System.Drawing.Size(893, 367);
             this.Basic_dataGridView.TabIndex = 0;
-            this.Basic_dataGridView.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Basic_Double_Click);
+            this.Basic_dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Basic_Double_Click);
             // 
             // Basic_ibillid
             // 
@@ -886,6 +910,14 @@
             this.Basic_ibillid.HeaderText = "单据标识";
             this.Basic_ibillid.Name = "Basic_ibillid";
             this.Basic_ibillid.ReadOnly = true;
+            // 
+            // TableName
+            // 
+            this.TableName.DataPropertyName = "tableName";
+            this.TableName.HeaderText = "TableName";
+            this.TableName.Name = "TableName";
+            this.TableName.ReadOnly = true;
+            this.TableName.Visible = false;
             // 
             // Basic_vType
             // 
@@ -951,14 +983,24 @@
             this.Basic_vRemarks.Name = "Basic_vRemarks";
             this.Basic_vRemarks.ReadOnly = true;
             // 
+            // ChartLayout_panel
+            // 
+            this.ChartLayout_panel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ChartLayout_panel.Location = new System.Drawing.Point(3, 160);
+            this.ChartLayout_panel.Name = "ChartLayout_panel";
+            this.ChartLayout_panel.Size = new System.Drawing.Size(913, 100);
+            this.ChartLayout_panel.TabIndex = 2;
+            this.ChartLayout_panel.Visible = false;
+            // 
             // mainPanel
             // 
             this.mainPanel.AutoScroll = true;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.mainPanel.Location = new System.Drawing.Point(3, 17);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(913, 500);
+            this.mainPanel.Size = new System.Drawing.Size(913, 143);
             this.mainPanel.TabIndex = 2;
+            this.mainPanel.Visible = false;
             // 
             // rightPanel
             // 
@@ -1540,12 +1582,46 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.ChartLayout_dataGridView);
             this.panel6.Controls.Add(this.dataGridView1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(180, 939);
             this.panel6.TabIndex = 0;
+            // 
+            // ChartLayout_dataGridView
+            // 
+            this.ChartLayout_dataGridView.AllowUserToAddRows = false;
+            this.ChartLayout_dataGridView.AllowUserToDeleteRows = false;
+            this.ChartLayout_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ChartLayout_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ChartLayout_vID,
+            this.ChartLayout_vPID,
+            this.ChartLayout_vFieldCode,
+            this.ChartLayout_vFieldName,
+            this.ChartLayout_vWidth,
+            this.ChartLayout_vHeight,
+            this.ChartLayout_vIsShow,
+            this.ChartLayout_vAlign,
+            this.ChartLayout_IOrderID,
+            this.ChartLayout_vDraj,
+            this.ChartLayout_vGroundColor,
+            this.ChartLayout_vOrgID,
+            this.ChartLayout_vfrmtype,
+            this.ChartLayout_vChange,
+            this.ChartLayout_vtexttype,
+            this.ChartLayout_vtotalrow,
+            this.ChartLayout_vtotalrowtype,
+            this.ChartLayout_vgroup});
+            this.ChartLayout_dataGridView.Location = new System.Drawing.Point(3, 327);
+            this.ChartLayout_dataGridView.Name = "ChartLayout_dataGridView";
+            this.ChartLayout_dataGridView.ReadOnly = true;
+            this.ChartLayout_dataGridView.RowTemplate.Height = 23;
+            this.ChartLayout_dataGridView.Size = new System.Drawing.Size(171, 232);
+            this.ChartLayout_dataGridView.TabIndex = 1;
+            this.ChartLayout_dataGridView.Visible = false;
+            this.ChartLayout_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.chartLayout_click);
             // 
             // dataGridView1
             // 
@@ -1571,13 +1647,13 @@
             this.vIsShow,
             this.vChange,
             this.vtexttype});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(180, 939);
+            this.dataGridView1.Size = new System.Drawing.Size(180, 311);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Visible = false;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.doubleCilck);
             // 
             // vID
@@ -1716,6 +1792,150 @@
             this.vtexttype.ReadOnly = true;
             this.vtexttype.Visible = false;
             // 
+            // ChartLayout_vID
+            // 
+            this.ChartLayout_vID.DataPropertyName = "vID";
+            this.ChartLayout_vID.HeaderText = "主键";
+            this.ChartLayout_vID.Name = "ChartLayout_vID";
+            this.ChartLayout_vID.ReadOnly = true;
+            this.ChartLayout_vID.Visible = false;
+            // 
+            // ChartLayout_vPID
+            // 
+            this.ChartLayout_vPID.DataPropertyName = "vPID";
+            this.ChartLayout_vPID.HeaderText = "布局ID";
+            this.ChartLayout_vPID.Name = "ChartLayout_vPID";
+            this.ChartLayout_vPID.ReadOnly = true;
+            this.ChartLayout_vPID.Visible = false;
+            // 
+            // ChartLayout_vFieldCode
+            // 
+            this.ChartLayout_vFieldCode.DataPropertyName = "vFieldCode";
+            this.ChartLayout_vFieldCode.HeaderText = "字段标识";
+            this.ChartLayout_vFieldCode.Name = "ChartLayout_vFieldCode";
+            this.ChartLayout_vFieldCode.ReadOnly = true;
+            this.ChartLayout_vFieldCode.Visible = false;
+            // 
+            // ChartLayout_vFieldName
+            // 
+            this.ChartLayout_vFieldName.DataPropertyName = "vFieldName";
+            this.ChartLayout_vFieldName.HeaderText = "字段展示名";
+            this.ChartLayout_vFieldName.Name = "ChartLayout_vFieldName";
+            this.ChartLayout_vFieldName.ReadOnly = true;
+            // 
+            // ChartLayout_vWidth
+            // 
+            this.ChartLayout_vWidth.DataPropertyName = "vWidth";
+            this.ChartLayout_vWidth.HeaderText = "字段长度";
+            this.ChartLayout_vWidth.Name = "ChartLayout_vWidth";
+            this.ChartLayout_vWidth.ReadOnly = true;
+            this.ChartLayout_vWidth.Visible = false;
+            // 
+            // ChartLayout_vHeight
+            // 
+            this.ChartLayout_vHeight.DataPropertyName = "vHeight";
+            this.ChartLayout_vHeight.HeaderText = "字段高度";
+            this.ChartLayout_vHeight.Name = "ChartLayout_vHeight";
+            this.ChartLayout_vHeight.ReadOnly = true;
+            this.ChartLayout_vHeight.Visible = false;
+            // 
+            // ChartLayout_vIsShow
+            // 
+            this.ChartLayout_vIsShow.DataPropertyName = "vIsShow";
+            this.ChartLayout_vIsShow.HeaderText = "字段是否默认显示";
+            this.ChartLayout_vIsShow.Name = "ChartLayout_vIsShow";
+            this.ChartLayout_vIsShow.ReadOnly = true;
+            this.ChartLayout_vIsShow.Visible = false;
+            // 
+            // ChartLayout_vAlign
+            // 
+            this.ChartLayout_vAlign.DataPropertyName = "vAlign";
+            this.ChartLayout_vAlign.HeaderText = "字段展示布局";
+            this.ChartLayout_vAlign.Name = "ChartLayout_vAlign";
+            this.ChartLayout_vAlign.ReadOnly = true;
+            this.ChartLayout_vAlign.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ChartLayout_vAlign.Visible = false;
+            // 
+            // ChartLayout_IOrderID
+            // 
+            this.ChartLayout_IOrderID.DataPropertyName = "IOrderID";
+            this.ChartLayout_IOrderID.HeaderText = "序号";
+            this.ChartLayout_IOrderID.Name = "ChartLayout_IOrderID";
+            this.ChartLayout_IOrderID.ReadOnly = true;
+            this.ChartLayout_IOrderID.Visible = false;
+            // 
+            // ChartLayout_vDraj
+            // 
+            this.ChartLayout_vDraj.DataPropertyName = "vDraj";
+            this.ChartLayout_vDraj.HeaderText = "字段是否可以拖动";
+            this.ChartLayout_vDraj.Name = "ChartLayout_vDraj";
+            this.ChartLayout_vDraj.ReadOnly = true;
+            this.ChartLayout_vDraj.Visible = false;
+            // 
+            // ChartLayout_vGroundColor
+            // 
+            this.ChartLayout_vGroundColor.DataPropertyName = "vGroundColor";
+            this.ChartLayout_vGroundColor.HeaderText = "背景色";
+            this.ChartLayout_vGroundColor.Name = "ChartLayout_vGroundColor";
+            this.ChartLayout_vGroundColor.ReadOnly = true;
+            this.ChartLayout_vGroundColor.Visible = false;
+            // 
+            // ChartLayout_vOrgID
+            // 
+            this.ChartLayout_vOrgID.DataPropertyName = "vOrgID";
+            this.ChartLayout_vOrgID.HeaderText = "集团ID";
+            this.ChartLayout_vOrgID.Name = "ChartLayout_vOrgID";
+            this.ChartLayout_vOrgID.ReadOnly = true;
+            this.ChartLayout_vOrgID.Visible = false;
+            // 
+            // ChartLayout_vfrmtype
+            // 
+            this.ChartLayout_vfrmtype.DataPropertyName = "vfrmtype";
+            this.ChartLayout_vfrmtype.HeaderText = "弹框类型";
+            this.ChartLayout_vfrmtype.Name = "ChartLayout_vfrmtype";
+            this.ChartLayout_vfrmtype.ReadOnly = true;
+            this.ChartLayout_vfrmtype.Visible = false;
+            // 
+            // ChartLayout_vChange
+            // 
+            this.ChartLayout_vChange.DataPropertyName = "vChange";
+            this.ChartLayout_vChange.HeaderText = "code";
+            this.ChartLayout_vChange.Name = "ChartLayout_vChange";
+            this.ChartLayout_vChange.ReadOnly = true;
+            this.ChartLayout_vChange.Visible = false;
+            // 
+            // ChartLayout_vtexttype
+            // 
+            this.ChartLayout_vtexttype.DataPropertyName = "vtexttype";
+            this.ChartLayout_vtexttype.HeaderText = "文本域";
+            this.ChartLayout_vtexttype.Name = "ChartLayout_vtexttype";
+            this.ChartLayout_vtexttype.ReadOnly = true;
+            this.ChartLayout_vtexttype.Visible = false;
+            // 
+            // ChartLayout_vtotalrow
+            // 
+            this.ChartLayout_vtotalrow.DataPropertyName = "vtotalrow";
+            this.ChartLayout_vtotalrow.HeaderText = "是否启用合计";
+            this.ChartLayout_vtotalrow.Name = "ChartLayout_vtotalrow";
+            this.ChartLayout_vtotalrow.ReadOnly = true;
+            this.ChartLayout_vtotalrow.Visible = false;
+            // 
+            // ChartLayout_vtotalrowtype
+            // 
+            this.ChartLayout_vtotalrowtype.DataPropertyName = "vtotalrowtype";
+            this.ChartLayout_vtotalrowtype.HeaderText = "合计方式";
+            this.ChartLayout_vtotalrowtype.Name = "ChartLayout_vtotalrowtype";
+            this.ChartLayout_vtotalrowtype.ReadOnly = true;
+            this.ChartLayout_vtotalrowtype.Visible = false;
+            // 
+            // ChartLayout_vgroup
+            // 
+            this.ChartLayout_vgroup.DataPropertyName = "vgroup";
+            this.ChartLayout_vgroup.HeaderText = "布局组";
+            this.ChartLayout_vgroup.Name = "ChartLayout_vgroup";
+            this.ChartLayout_vgroup.ReadOnly = true;
+            this.ChartLayout_vgroup.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1727,6 +1947,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = global::PageRederForRX.Properties.Settings.Default.MainFormName;
+            this.Shown += new System.EventHandler(this.firstLoad);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
@@ -1791,6 +2012,7 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ChartLayout_dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -1928,16 +2150,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView Basic_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_ibillid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyName_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vkeyValue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vHzrxField1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vHzrxField2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_IOrderId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vRemarks;
         private System.Windows.Forms.Panel RoleBillLay_panel1;
         private System.Windows.Forms.Panel RoleBIllLay_panel3;
         private System.Windows.Forms.DataGridView RoleBIllLay_fzqxdataGrid;
@@ -1953,6 +2165,37 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 排序;
         private System.Windows.Forms.DataGridViewTextBoxColumn 置灰;
         private System.Windows.Forms.DataGridViewTextBoxColumn 集团ID;
+        private System.Windows.Forms.DataGridView ChartLayout_dataGridView;
+        private System.Windows.Forms.FlowLayoutPanel ChartLayout_panel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_ibillid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TableName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vKeyName_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vkeyValue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vHzrxField1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vHzrxField2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_IOrderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Basic_vRemarks;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vPID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vFieldCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vFieldName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vWidth;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vHeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vIsShow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vAlign;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_IOrderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vDraj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vGroundColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vOrgID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vfrmtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vChange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vtexttype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vtotalrow;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vtotalrowtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChartLayout_vgroup;
 
 
         //从发发那边同步的代码

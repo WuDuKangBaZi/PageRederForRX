@@ -117,6 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Basic_vtype_paramcode" xml:space="preserve">
+    <value>select code,name from (
+select vtype code,vtype name from TBUDT_BasicAllCtr GROUP BY vtype 
+union all 
+select vtype code,vtype name from TBUDT_BasicCodeToN GROUP BY vtype 
+union all 
+select vtype code,vtype name from TBUDT_BasicListCap group by vtype) a where a.code!=''  group by code,name</value>
+  </data>
   <data name="getBasicSQL" xml:space="preserve">
     <value>SELECT
 	ibillid,
@@ -128,7 +136,7 @@
 	vHzrxField1,
 	vHzrxField2,
 	tba.IOrderId,
-	vRemarks
+	vRemarks,'TBUDT_BasicAllCtr' tableName
 	from TBUDT_BasicAllCtr tba
 	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
 WHERE
@@ -144,7 +152,7 @@ WHERE
 	vHzrxField1,
 	vHzrxField2,
 	tba.IOrderId,
-	vRemarks
+	vRemarks,'TBUDT_BasicCodeToN' tableName
 	from TBUDT_BasicCodeToN tba
 	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
 WHERE
@@ -161,10 +169,19 @@ WHERE
 	vHzrxField1,
 	vHzrxField2,
 	tba.IOrderId,
-	vRemarks
+	vRemarks,'TBUDT_BasicListCap' tableName
 	from TBUDT_BasicListCap tba
 	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
 WHERE
 	tba.ibillid = '{getIbilldId()}'{whereIs}</value>
+  </data>
+  <data name="query_ChartLayout_For_TBUDT_ModeLayout" xml:space="preserve">
+    <value>select vwidth,vHeight from TBUDT_ModeLayout where vid = '{ChartLayoutListBox.SelectedItem}'</value>
+  </data>
+  <data name="query_TBUDT_ChartLayout" xml:space="preserve">
+    <value>select vID,vPID,vFieldCode,vFieldName,vWidth,vHeight,vIsShow,vAlign,IOrderID,vDraj,vGroundColor,vOrgID,vfrmtype,vChange,vtexttype,vtotalrow,vtotalrowtype,vgroup from TBUDT_ChartLayout where vpid = '{ChartLayoutListBox.SelectedItem}' order by IOrderID</value>
+  </data>
+  <data name="query_TBUDT_EditLayout" xml:space="preserve">
+    <value>select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,ISNULL(vIsShow, '1') vIsShow ,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'</value>
   </data>
 </root>

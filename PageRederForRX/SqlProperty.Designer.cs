@@ -61,6 +61,20 @@ namespace PageRederForRX {
         }
         
         /// <summary>
+        ///   查找类似 select code,name from (
+        ///select vtype code,vtype name from TBUDT_BasicAllCtr GROUP BY vtype 
+        ///union all 
+        ///select vtype code,vtype name from TBUDT_BasicCodeToN GROUP BY vtype 
+        ///union all 
+        ///select vtype code,vtype name from TBUDT_BasicListCap group by vtype) a where a.code!=&apos;&apos;  group by code,name 的本地化字符串。
+        /// </summary>
+        internal static string Basic_vtype_paramcode {
+            get {
+                return ResourceManager.GetString("Basic_vtype_paramcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 SELECT
         ///	ibillid,
         ///	vType,
@@ -71,7 +85,7 @@ namespace PageRederForRX {
         ///	vHzrxField1,
         ///	vHzrxField2,
         ///	tba.IOrderId,
-        ///	vRemarks
+        ///	vRemarks,&apos;TBUDT_BasicAllCtr&apos; tableName
         ///	from TBUDT_BasicAllCtr tba
         ///	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
         ///WHERE
@@ -87,14 +101,39 @@ namespace PageRederForRX {
         ///	vHzrxField1,
         ///	vHzrxField2,
         ///	tba.IOrderId,
-        ///	vRemarks
-        ///	from TBUDT_BasicCodeToN tba
-        ///	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
-        /// [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	vRemarks,&apos;TBUDT_BasicCodeToN&apos; tableName
+        ///	from TBUDT_BasicCo [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         internal static string getBasicSQL {
             get {
                 return ResourceManager.GetString("getBasicSQL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 select vwidth,vHeight from TBUDT_ModeLayout where vid = &apos;{ChartLayoutListBox.SelectedItem}&apos; 的本地化字符串。
+        /// </summary>
+        internal static string query_ChartLayout_For_TBUDT_ModeLayout {
+            get {
+                return ResourceManager.GetString("query_ChartLayout_For_TBUDT_ModeLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 select vID,vPID,vFieldCode,vFieldName,vWidth,vHeight,vIsShow,vAlign,IOrderID,vDraj,vGroundColor,vOrgID,vfrmtype,vChange,vtexttype,vtotalrow,vtotalrowtype,vgroup from TBUDT_ChartLayout where vpid = &apos;{ChartLayoutListBox.SelectedItem}&apos; order by IOrderID 的本地化字符串。
+        /// </summary>
+        internal static string query_TBUDT_ChartLayout {
+            get {
+                return ResourceManager.GetString("query_TBUDT_ChartLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,ISNULL(vIsShow, &apos;1&apos;) vIsShow ,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid =&apos;{MainListBox.SelectedItem}&apos; 的本地化字符串。
+        /// </summary>
+        internal static string query_TBUDT_EditLayout {
+            get {
+                return ResourceManager.GetString("query_TBUDT_EditLayout", resourceCulture);
             }
         }
     }
