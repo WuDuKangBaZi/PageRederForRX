@@ -37,11 +37,11 @@ namespace PageRederTestConsole
             string querySql = "";
             if (ibillid != "")
             {
-                querySql = $"select vid from TBUDT_ModeLayout where IBillID like '%{ibillid}%' and vDicId = 'hdata' group by vid ";
+                querySql = $"select vpid from TBUDT_EditLayout te left join TBUDT_ModeLayout tm on te.vPID = tm.vid  where tm.IBillID like '%{ibillid}%' GROUP BY VPID";
             }
             else
             {
-                querySql = "select vid from TBUDT_ModeLayout where  vDicId = 'hdata' group by vid";
+                querySql = "select vpid from TBUDT_EditLayout GROUP BY VPID";
             }
             DBUtil dBUtil = new DBUtil();
             SqlConnection connection = dBUtil.GetConnection();
@@ -50,8 +50,8 @@ namespace PageRederTestConsole
             return dSet;
         }
         #endregion
-        #region 查询从表
-        public List<string> getChartLayoutList(string ibillid)
+        #region 查询从表 未完成功能
+        public DataSet getChartLayoutList(string ibillid)
         {
             string querySql = "";
             if (ibillid != "")
@@ -61,22 +61,13 @@ namespace PageRederTestConsole
             }
             else
             {
-                querySql = "select vpid from TBUDT_ChartLayout GROUP BY VPID";
+                querySql = "select vpid from TBUDT_ModeLayout GROUP BY VPID";
             }
             DBUtil dBUtil = new DBUtil();
             SqlConnection connection = dBUtil.GetConnection();
             DataSet dSet = dBUtil.Query(connection, querySql);
-            List<string> mainLayoutList = new List<string>();
-            foreach (DataRow row in dSet.Tables[0].Rows)
-            {
-                foreach (DataColumn dataColumn in dSet.Tables[0].Columns)
-                {
-                    mainLayoutList.Add(row[dataColumn].ToString());
-                }
-
-            }
-
-            return mainLayoutList;
+            dBUtil.close(connection);
+            return dSet;
         }
         #endregion
 

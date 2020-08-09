@@ -35,6 +35,7 @@ namespace PageRederForRX.src.Function
         public BindingSource getparamcode(string vtypeid) {
             Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
             string querySql = $"select code,name from tpzjk_getparamcode where typeid = '{vtypeid}'";
+            Console.WriteLine(querySql);
             DBUtil db = new DBUtil();
             SqlConnection sqlConnection = db.GetConnection();
             DataSet ds = db.Query(sqlConnection,querySql);
@@ -51,22 +52,5 @@ namespace PageRederForRX.src.Function
         }
         #endregion
 
-
-        #region 传入自定义SQL 获取码表 SQL 查询名称 应以 code  name 排序 只支持返回两项结果
-        public BindingSource getParamCodeFor(string sql) {
-            Dictionary<string, string> KeyValuePair = new Dictionary<string, string>();
-            DBUtil db = new DBUtil();
-            SqlConnection connection = db.GetConnection();
-            DataSet ds = db.Query(connection, sql);
-            foreach (DataRow row in ds.Tables[0].Rows) {
-
-                KeyValuePair.Add(row[0].ToString(), row[1].ToString());
-            }
-            BindingSource bs = new BindingSource();
-            bs.DataSource = KeyValuePair;
-            return bs;
-        
-        }
-        #endregion
     }
 }
