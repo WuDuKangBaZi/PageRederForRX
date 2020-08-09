@@ -88,7 +88,7 @@ namespace PageRederForRX.formSrc
             string TableName = "";
             if (addBtn == 0) {
                 string up_sql = $"update {TableName} set vKeyName = '{Basic_vKeyName.SelectedValue}',vkeyvalue = '{Basic_vkeyValue}',vHzrxField1='{Basic_vHzrxField1.Text}',vHzrxField2 = '{Basic_vHzrxField2.Text}',IOrderId = '{Basic_IOrderId.Text}',vRemarks = '{Basic_vRemarks.Text}' where ibillid ='{Basic_ibillid}' and vkeyid = '{Basic_vKeyid.Text}' and vtype = '{Basic_vType.SelectedValue}'";
-                SqlConnection cnn = new DBUtil().GetConnection();
+                SqlConnection cnn = dB.GetConnection();
                 SqlCommand cmd = new SqlCommand();
                 SqlTransaction transaction = null;
                 try

@@ -33,6 +33,7 @@ namespace PageRederForRX
         private void firstLoad(object sender, EventArgs e)
         {
             messageList.Text = rm.GetString("ErrorNote");
+            
         }
         #endregion
         #region 加载主要数据 即 读取布局信息 主表:TBUDT_ModeLayout 从表   TBUDT_ChartLayout
@@ -64,9 +65,12 @@ namespace PageRederForRX
             dataGridView1.Visible = true;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.DataSource = OSDataSet.Tables[0];
+            ChartLayout_panel.Visible = false;
             mainPanel.Visible = true;
             mainPanel.Dock = DockStyle.Top;
-            mainPanel.AutoSize = true;
+            //mainPanel.AutoSize = true;
+            mainPanel.Height = 500;
+            mainPanel.AutoScroll = true;
             drawMainView(OSDataSet);
             getBasiList("");
 
@@ -79,12 +83,16 @@ namespace PageRederForRX
             //string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,vIsShow,vgroup,vChange,vtexttype,vDefault  from TBUDT_ChartLayout where vpid ='{ChartLayoutListBox.SelectedItem}'";
             OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), sql);
             ChartLayout_dataGridView.Visible = true;
+            mainPanel.Visible = false;
             dataGridView1.Visible = false;
             /*ChartLayoutListBox.Dock = DockStyle.Fill;*/
             ChartLayout_dataGridView.DataSource = OSDataSet.Tables[0];
             ChartLayout_dataGridView.Dock = DockStyle.Fill;
             ChartLayout_panel.Visible = true;
             ChartLayout_panel.Dock = DockStyle.Top;
+            //ChartLayout_panel.AutoSize = true;
+            ChartLayout_panel.Height = 500;
+            ChartLayout_panel.AutoScroll = true;
 
             /*drawChartLayout(OSDataSet);*/
             getBasiList("");
@@ -225,6 +233,7 @@ namespace PageRederForRX
             mainPanel.BackColor = stringToColor("#ffffff");
             //主绘制窗口 从数据中加载 
             //获取到数据 开始解析绘制
+            ChartLayoutListBox.SelectedValue = "";
             foreach (DataRow row in gridViewSet.Tables[0].Rows)
             {
                 int vfrmtype = int.Parse(row[11].ToString());
@@ -261,6 +270,7 @@ namespace PageRederForRX
         #region 从表绘制
         private void drawChartLayout(DataSet gridVewSet)
         {
+            MainListBox.SelectedValue = "";
             ChartLayout_panel.Controls.Clear();
             ChartLayout_panel.BackColor = stringToColor("#ffffff");
             // 针对从表 采用流布局 需要指定宽度  高度
@@ -801,7 +811,7 @@ namespace PageRederForRX
         #region 4.1 赋值及权限 table页 查询按钮点击事件
         private void button5_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("未完成功能！参阅单据属性！","提示");
             //加载数据
             if (MainListBox.SelectedItem == null)
             {
