@@ -32,7 +32,7 @@ namespace PageRederForRX
         #region 第一次显示窗口的时候 可用作数据检查等
         private void firstLoad(object sender, EventArgs e)
         {
-
+            messageList.Text = rm.GetString("ErrorNote");
         }
         #endregion
         #region 加载主要数据 即 读取布局信息 主表:TBUDT_ModeLayout 从表   TBUDT_ChartLayout

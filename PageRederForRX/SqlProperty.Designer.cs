@@ -75,6 +75,20 @@ namespace PageRederForRX {
         }
         
         /// <summary>
+        ///   查找类似 Bug&amp;建议:
+        ///	实施一组: 盛发发|余治发
+        ///已知问题：
+        ///	1.暂时无法识别钉钉布局
+        ///	2.从表布局无法绘制
+        ///	3.从表部分数据无法更改 的本地化字符串。
+        /// </summary>
+        internal static string ErrorNote {
+            get {
+                return ResourceManager.GetString("ErrorNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 SELECT
         ///	ibillid,
         ///	vType,
