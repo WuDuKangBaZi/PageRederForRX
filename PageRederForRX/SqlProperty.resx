@@ -117,10 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="Basic_vtype_paramcode" xml:space="preserve">
+    <value>select code,name from (
+select vtype code,vtype name from TBUDT_BasicAllCtr GROUP BY vtype 
+union all 
+select vtype code,vtype name from TBUDT_BasicCodeToN GROUP BY vtype 
+union all 
+select vtype code,vtype name from TBUDT_BasicListCap group by vtype) a where a.code!=''  group by code,name</value>
+  </data>
+  <data name="ErrorNote" xml:space="preserve">
+    <value>Bug&amp;建议:
+	实施一组: 盛发发|余治发
+已知问题：
+	1.暂时无法识别钉钉布局
+	2.从表布局无法绘制
+	3.从表部分数据无法更改</value>
+  </data>
+  <data name="getBasicSQL" xml:space="preserve">
+    <value>SELECT
+	ibillid,
+	vType,
+	vKeyid,
+	vKeyName,
+	tgp.name vName,
+	vkeyValue,
+	vHzrxField1,
+	vHzrxField2,
+	tba.IOrderId,
+	vRemarks,'TBUDT_BasicAllCtr' tableName
+	from TBUDT_BasicAllCtr tba
+	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
+WHERE
+	tba.ibillid = '{getIbilldId()}'{whereIs}
+	union all 
+	SELECT
+	ibillid,
+	vType,
+	vKeyid,
+	vKeyName,
+	tgp.name vName,
+	vkeyValue,
+	vHzrxField1,
+	vHzrxField2,
+	tba.IOrderId,
+	vRemarks,'TBUDT_BasicCodeToN' tableName
+	from TBUDT_BasicCodeToN tba
+	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
+WHERE
+	tba.ibillid = '{getIbilldId()}'{whereIs}
+	
+		union all 
+	SELECT
+	ibillid,
+	vType,
+	vKeyid,
+	vKeyName,
+	tgp.name vName,
+	vkeyValue,
+	vHzrxField1,
+	vHzrxField2,
+	tba.IOrderId,
+	vRemarks,'TBUDT_BasicListCap' tableName
+	from TBUDT_BasicListCap tba
+	LEFT JOIN TPZJK_GetParamCode tgp ON tba.vkeyname = tgp.code 
+WHERE
+	tba.ibillid = '{getIbilldId()}'{whereIs}</value>
+  </data>
+  <data name="query_ChartLayout_For_TBUDT_ModeLayout" xml:space="preserve">
+    <value>select vwidth,vHeight from TBUDT_ModeLayout where vid = '{ChartLayoutListBox.SelectedItem}'</value>
+  </data>
+  <data name="query_TBUDT_ChartLayout" xml:space="preserve">
+    <value>select vID,vPID,vFieldCode,vFieldName,vWidth,vHeight,vIsShow,vAlign,IOrderID,vDraj,vGroundColor,vOrgID,vfrmtype,vChange,vtexttype,vtotalrow,vtotalrowtype,vgroup from TBUDT_ChartLayout where vpid = '{ChartLayoutListBox.SelectedItem}' order by IOrderID</value>
+  </data>
+  <data name="query_TBUDT_EditLayout" xml:space="preserve">
+    <value>select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,ISNULL(vIsShow, '1') vIsShow ,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'</value>
+  </data>
 </root>
