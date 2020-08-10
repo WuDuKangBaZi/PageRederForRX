@@ -12,11 +12,19 @@ namespace PageRederForRX.formSrc
     {
         System.Resources.ResourceManager rm = null;
         int addBtn = 0;
-        public BasicAllCtr()
+        Form1 f1;
+        public BasicAllCtr(Form1 ff)
         {
             InitializeComponent();
+            f1 = ff;
         }
         private string ibillid, vType, vKeyid, vKeyName, vName, vkeyValue, vHzrxField1, vHzrxField2, IOrderId, vRemarks,TableName = "";
+
+        private void closeing(object sender, FormClosingEventArgs e)
+        {
+            f1.bac = null;
+        }
+
         public void setbasicAllCtr(string ibillid, string vType, string vKeyid, string vKeyName, string vName, string vkeyValue, string vHzrxField1, string vHzrxField2, string iOrderId, string vRemarks,string TableName)
         {
             this.ibillid = ibillid;
@@ -36,7 +44,7 @@ namespace PageRederForRX.formSrc
         {
             DataLoad dl = new DataLoad();
             Basic_vKeyName.DataSource = dl.getparamcode("1243");
-            Basic_vKeyName.ValueMember = "Key";
+            Basic_vKeyName.ValueMember = "key";
             Basic_vKeyName.DisplayMember = "Value";
 
             string Sql = rm.GetString("Basic_vtype_paramcode");

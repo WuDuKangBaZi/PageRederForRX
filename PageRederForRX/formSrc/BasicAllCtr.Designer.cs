@@ -87,7 +87,7 @@
             // 新增ToolStripMenuItem
             // 
             this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
-            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.新增ToolStripMenuItem.Text = "新增";
             this.新增ToolStripMenuItem.Click += new System.EventHandler(this.新增ToolStripMenuItem_Click);
             // 
@@ -325,6 +325,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "BasicAllCtr";
             this.Text = "单据依赖关系编辑框";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.closeing);
             this.Load += new System.EventHandler(this.loadBasic);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

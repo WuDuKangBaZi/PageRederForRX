@@ -21,7 +21,7 @@ namespace PageRederTestConsole
                 
                 sqlConnection.Open();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 MessageBox.Show("数据库读取错误！");
                 return null;
@@ -75,7 +75,7 @@ namespace PageRederTestConsole
                 sqlCommand.Connection = sqlConnection;
                 return sqlCommand.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return 0;
             }

@@ -103,7 +103,7 @@ namespace PageRederForRX
                     MessageBox.Show("更新成功！");
                     cnn.Close();
                 }
-                catch(Exception ex){
+                catch(Exception){
                     MessageBox.Show("保存失败！", "错误");
                     transaction.Rollback();
                     cnn.Close();
@@ -144,7 +144,7 @@ namespace PageRederForRX
                     MessageBox.Show("更新成功！");
                     cnn.Close();
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     transaction.Rollback();
                     MessageBox.Show("保存失败！", "错误");

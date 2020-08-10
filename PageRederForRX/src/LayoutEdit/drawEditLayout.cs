@@ -46,8 +46,6 @@ namespace PageRederForRX.src.LayoutEdit
             int grid_height = int.Parse(gridRow[7].ToString());
             string vColor = gridRow[8].ToString();
             string vGroundColor = gridRow[9].ToString();
-            //int vfrmtype = int.Parse(gridRow[9].ToString());
-            bool vIsShow;
             string isSHow = gridRow[12].ToString().ToString();
             
 

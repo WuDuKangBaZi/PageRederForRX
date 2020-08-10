@@ -25,10 +25,11 @@ namespace PageRederForRX.formSrc
         public string IOrderID { get; set; }
         public string Vtestvalue { get; set; }
         public string VRemarks { get; set; }
-
-        public BillChkStand()
+        Form1 f1;
+        public BillChkStand(Form1 form1)
         {
             InitializeComponent();
+            f1 = form1;
         }
         #region 单据属性数据初始化 数据来源为 双击表格的时候传递过来的 
         private void onShow(object sender, EventArgs e)

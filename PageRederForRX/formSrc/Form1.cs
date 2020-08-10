@@ -20,6 +20,8 @@ namespace PageRederForRX
         DataSet OSDataSet = new DataSet();
         private int com_add_btn = 0;
         System.Resources.ResourceManager rm = null;
+        public BasicAllCtr bac = null;
+        public BillChkStand bcs = null;
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +35,8 @@ namespace PageRederForRX
         private void firstLoad(object sender, EventArgs e)
         {
             messageList.Text = rm.GetString("ErrorNote");
-            
+            DBUtil db = new DBUtil();
+            db.GetConnection();
         }
         #endregion
         #region 加载主要数据 即 读取布局信息 主表:TBUDT_ModeLayout 从表   TBUDT_ChartLayout
@@ -58,46 +61,61 @@ namespace PageRederForRX
             //选择后调用查询界面
             //MessageBox.Show(MainListBox.SelectedItem.ToString());
             //dataGridView1.DataSource = ds.Tables[0]; // 此处调用完毕后 需要绘制界面了
-            string sql = rm.GetString("query_TBUDT_EditLayout").Replace("{MainListBox.SelectedItem}", MainListBox.SelectedItem.ToString());
-            //string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,ISNULL(vIsShow, '1') vIsShow ,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'";
-            OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), sql);
-            ChartLayout_dataGridView.Visible = false;
-            dataGridView1.Visible = true;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.DataSource = OSDataSet.Tables[0];
-            ChartLayout_panel.Visible = false;
-            mainPanel.Visible = true;
-            mainPanel.Dock = DockStyle.Top;
-            //mainPanel.AutoSize = true;
-            mainPanel.Height = 500;
-            mainPanel.AutoScroll = true;
-            drawMainView(OSDataSet);
-            getBasiList("");
+            try
+            {
+                string sql = rm.GetString("query_TBUDT_EditLayout").Replace("{MainListBox.SelectedItem}", MainListBox.SelectedItem.ToString());
+                //string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,ISNULL(vIsShow, '1') vIsShow ,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'";
+                OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), sql);
+                ChartLayout_dataGridView.Visible = false;
+                dataGridView1.Visible = true;
+                dataGridView1.Dock = DockStyle.Fill;
+                dataGridView1.DataSource = OSDataSet.Tables[0];
+                ChartLayout_panel.Visible = false;
+                mainPanel.Visible = true;
+                mainPanel.Dock = DockStyle.Top;
+                //mainPanel.AutoSize = true;
+                mainPanel.Height = 500;
+                mainPanel.AutoScroll = true;
+                drawMainView(OSDataSet);
+                getBasiList("");
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("未选中 <主> 单据", "错误");
+            }
 
         }
         #region 加载从表的数据
         private void chartLayourChange(object sender, EventArgs e)
         {
             //选择后调用查询界面
-            string sql = rm.GetString("query_TBUDT_ChartLayout").Replace("{ChartLayoutListBox.SelectedItem}", ChartLayoutListBox.SelectedItem.ToString());
-            //string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,vIsShow,vgroup,vChange,vtexttype,vDefault  from TBUDT_ChartLayout where vpid ='{ChartLayoutListBox.SelectedItem}'";
-            OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), sql);
-            ChartLayout_dataGridView.Visible = true;
-            mainPanel.Visible = false;
-            dataGridView1.Visible = false;
-            /*ChartLayoutListBox.Dock = DockStyle.Fill;*/
-            ChartLayout_dataGridView.DataSource = OSDataSet.Tables[0];
-            ChartLayout_dataGridView.Dock = DockStyle.Fill;
-            ChartLayout_panel.Visible = true;
-            ChartLayout_panel.Dock = DockStyle.Top;
-            //ChartLayout_panel.AutoSize = true;
-            ChartLayout_panel.Height = 500;
-            ChartLayout_panel.AutoScroll = true;
+            try
+            {
+                string sql = rm.GetString("query_TBUDT_ChartLayout").Replace("{ChartLayoutListBox.SelectedItem}", ChartLayoutListBox.SelectedItem.ToString());
+                OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), sql);
+                ChartLayout_dataGridView.Visible = true;
+                mainPanel.Visible = false;
+                dataGridView1.Visible = false;
+                /*ChartLayoutListBox.Dock = DockStyle.Fill;*/
+                ChartLayout_dataGridView.DataSource = OSDataSet.Tables[0];
+                ChartLayout_dataGridView.Dock = DockStyle.Fill;
+                ChartLayout_panel.Visible = true;
+                ChartLayout_panel.Dock = DockStyle.Top;
+                //ChartLayout_panel.AutoSize = true;
+                ChartLayout_panel.Height = 500;
+                ChartLayout_panel.AutoScroll = true;
 
-            /*drawChartLayout(OSDataSet);*/
-            getBasiList("");
-            MessageBox.Show("数据原因，从表暂不支持预览！");
-            ChartLayout_panel.Height = 500;
+                /*drawChartLayout(OSDataSet);*/
+                getBasiList("");
+                MessageBox.Show("数据原因，从表暂不支持预览！");
+                ChartLayout_panel.Height = 500;
+
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("未选中 <从> 单据", "错误");
+
+            }
         }
         #endregion
         #endregion
@@ -128,6 +146,8 @@ namespace PageRederForRX
             comboBox2.Enabled = status;
             comboBox3.Enabled = status;
             comboBox4.Enabled = status;
+
+            tabControl1.Enabled = !status;
         }
         #endregion
         #region 双击单据字段列表时 将字段填充到右侧编辑表格内
@@ -171,7 +191,7 @@ namespace PageRederForRX
 
                 lockData(false);
             }
-            catch (ArgumentOutOfRangeException ooe)
+            catch (ArgumentOutOfRangeException )
             {
                 MessageBox.Show("点击表头就会触发这个问题！");
 
@@ -215,7 +235,7 @@ namespace PageRederForRX
                 lockData(false);
 
             }
-            catch (ArgumentOutOfRangeException ooe)
+            catch (ArgumentOutOfRangeException )
             {
                 MessageBox.Show("点击表头就会触发这个问题！");
 
@@ -332,7 +352,7 @@ namespace PageRederForRX
             {
                 return ColorTranslator.FromHtml(colorString);
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 //MessageBox.Show("这个单据的颜色配置异常，去数据库修改试试！");
                 return ColorTranslator.FromHtml("#fffff");
@@ -466,23 +486,23 @@ namespace PageRederForRX
                     string save_sql = $"update TBUDT_EditLayout set vMainLable = '{textBox13.Text}',vLable='{textBox10.Text}',vTop = '{textBox4.Text}', " +
                     $"vLeft = '{textBox3.Text}', vWidth = '{textBox5.Text}',vHeight = '{textBox6.Text}',vColor = '{textBox7.Text}',vGroundColor = '{textBox8.Text}'" +
                     $",IOrderID = '{textBox9.Text}',vfrmtype ='{comboBox2.SelectedValue.ToString()}',vIsShow = '{comboBox1.SelectedValue.ToString()}',vChange = '{comboBox3.SelectedValue.ToString()}'" +
-                    $",vtexttype = '{comboBox4.SelectedValue.ToString()}',vDefault = '{textBox15.Text}' where vFieldCode = '{textBox2.Text}' and vpid = '{MainListBox.SelectedValue.ToString()}' ";
+                    $",vtexttype = '{comboBox4.SelectedValue.ToString()}',vDefault = '{textBox15.Text}' where vFieldCode = '{textBox2.Text}' and vpid = '{MainListBox.SelectedItem.ToString()}' ";
 
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = save_sql;
                     cmd.ExecuteNonQuery();
                     transaction.Commit();
                     //重新绘制
-                    string queryString = $"select vID,vFieldCode,vMainLable,vLable,vTop,vLeft,vWidth,vHeight,vColor,vGroundColor,IOrderID,vfrmtype,vIsShow,vgroup,vChange,vtexttype,vDefault  from TBUDT_EditLayout where vpid ='{MainListBox.SelectedItem}'";
+                    string sql = rm.GetString("query_TBUDT_EditLayout").Replace("{MainListBox.SelectedItem}", MainListBox.SelectedItem.ToString());
                     OSDataSet.Clear();
-                    OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), queryString);
+                    OSDataSet = new DBUtil().Query(new DBUtil().GetConnection(), sql);
                     dataGridView1.DataSource = OSDataSet.Tables[0];
                     drawMainView(OSDataSet);
-
+                    lockData(false);
                     MessageBox.Show("更新成功！");
                     cnn.Close();
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     MessageBox.Show("保存失败！", "错误");
                     transaction.Rollback();
@@ -512,14 +532,14 @@ namespace PageRederForRX
                     transaction.Commit();
                     cnn.Close();
                     MessageBox.Show("更新成功！");
-                    
+
                 }
                 catch (Exception)
                 {
                     transaction.Rollback();
                     cnn.Close();
                     MessageBox.Show("保存失败！", "错误");
-                    
+
 
                 }
             }
@@ -560,19 +580,38 @@ namespace PageRederForRX
         private void shuxing_doubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //双击
-            int rowIndex = e.RowIndex;
-            BillChkStand stand = new BillChkStand();
-            stand.IBillId = shuxingDataGrid.Rows[rowIndex].Cells["IBillId"].Value.ToString();
-            stand.VOrgID = shuxingDataGrid.Rows[rowIndex].Cells["vOrgID"].Value.ToString();
-            stand.VID = shuxingDataGrid.Rows[rowIndex].Cells["cvID"].Value.ToString();
-            stand.VCheckType = shuxingDataGrid.Rows[rowIndex].Cells["vCheckType"].Value.ToString();
-            stand.VHint = shuxingDataGrid.Rows[rowIndex].Cells["vHint"].Value.ToString();
-            stand.VExPValue = shuxingDataGrid.Rows[rowIndex].Cells["vExPValue"].Value.ToString();
-            stand.VDicID = shuxingDataGrid.Rows[rowIndex].Cells["vDicID"].Value.ToString();
-            stand.IOrderID = shuxingDataGrid.Rows[rowIndex].Cells["cIOrderID"].Value.ToString();
-            stand.Vtestvalue = shuxingDataGrid.Rows[rowIndex].Cells["vtestvalue"].Value.ToString();
-            stand.VRemarks = shuxingDataGrid.Rows[rowIndex].Cells["vRemarks"].Value.ToString();
-            stand.Show();
+            if (bcs == null) {
+                int rowIndex = e.RowIndex;
+                bcs = new BillChkStand(this);
+                bcs.IBillId = shuxingDataGrid.Rows[rowIndex].Cells["IBillId"].Value.ToString();
+                bcs.VOrgID = shuxingDataGrid.Rows[rowIndex].Cells["vOrgID"].Value.ToString();
+                bcs.VID = shuxingDataGrid.Rows[rowIndex].Cells["cvID"].Value.ToString();
+                bcs.VCheckType = shuxingDataGrid.Rows[rowIndex].Cells["vCheckType"].Value.ToString();
+                bcs.VHint = shuxingDataGrid.Rows[rowIndex].Cells["vHint"].Value.ToString();
+                bcs.VExPValue = shuxingDataGrid.Rows[rowIndex].Cells["vExPValue"].Value.ToString();
+                bcs.VDicID = shuxingDataGrid.Rows[rowIndex].Cells["vDicID"].Value.ToString();
+                bcs.IOrderID = shuxingDataGrid.Rows[rowIndex].Cells["cIOrderID"].Value.ToString();
+                bcs.Vtestvalue = shuxingDataGrid.Rows[rowIndex].Cells["vtestvalue"].Value.ToString();
+                bcs.VRemarks = shuxingDataGrid.Rows[rowIndex].Cells["vRemarks"].Value.ToString();
+                bcs.Show();
+
+            }
+            else
+            {
+                int rowIndex = e.RowIndex;
+                bcs.IBillId = shuxingDataGrid.Rows[rowIndex].Cells["IBillId"].Value.ToString();
+                bcs.VOrgID = shuxingDataGrid.Rows[rowIndex].Cells["vOrgID"].Value.ToString();
+                bcs.VID = shuxingDataGrid.Rows[rowIndex].Cells["cvID"].Value.ToString();
+                bcs.VCheckType = shuxingDataGrid.Rows[rowIndex].Cells["vCheckType"].Value.ToString();
+                bcs.VHint = shuxingDataGrid.Rows[rowIndex].Cells["vHint"].Value.ToString();
+                bcs.VExPValue = shuxingDataGrid.Rows[rowIndex].Cells["vExPValue"].Value.ToString();
+                bcs.VDicID = shuxingDataGrid.Rows[rowIndex].Cells["vDicID"].Value.ToString();
+                bcs.IOrderID = shuxingDataGrid.Rows[rowIndex].Cells["cIOrderID"].Value.ToString();
+                bcs.Vtestvalue = shuxingDataGrid.Rows[rowIndex].Cells["vtestvalue"].Value.ToString();
+                bcs.VRemarks = shuxingDataGrid.Rows[rowIndex].Cells["vRemarks"].Value.ToString();
+                bcs.TopMost = true;
+
+            }
 
         }
         #endregion
@@ -714,7 +753,7 @@ namespace PageRederForRX
                     MessageBox.Show("更新成功！");
                     cnn.Close();
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     // transaction.Rollback(); 回滚操作 在进入到cath 后回滚update或者insert 避免因为出现错误而导致数据异常
 
@@ -761,7 +800,7 @@ namespace PageRederForRX
                     MessageBox.Show("更新成功！");
                     cnn.Close();
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
 
                     transaction.Rollback();
@@ -793,16 +832,32 @@ namespace PageRederForRX
         private void Basic_Double_Click(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            BasicAllCtr bac = new BasicAllCtr();
-            DataGridViewRow dataGridView = Basic_dataGridView.Rows[index];
-            bac.setbasicAllCtr(dataGridView.Cells["Basic_ibillid"].Value.ToString(), dataGridView.Cells["Basic_vType"].Value.ToString(),
-                dataGridView.Cells["Basic_vKeyid"].Value.ToString(), dataGridView.Cells["Basic_vKeyName"].Value.ToString()
-                , dataGridView.Cells["Basic_vKeyName"].Value.ToString(), dataGridView.Cells["Basic_vkeyValue"].Value.ToString()
-                , dataGridView.Cells["Basic_vHzrxField1"].Value.ToString(), dataGridView.Cells["Basic_vHzrxField2"].Value.ToString(),
-                dataGridView.Cells["Basic_IOrderId"].Value.ToString(), dataGridView.Cells["Basic_vRemarks"].Value.ToString(),
-                dataGridView.Cells["tableName"].Value.ToString());
-            bac.Show();
+            if (bac == null)
+            {
+                bac = new BasicAllCtr(this);
+                DataGridViewRow dataGridView = Basic_dataGridView.Rows[index];
+                bac.setbasicAllCtr(dataGridView.Cells["Basic_ibillid"].Value.ToString(), dataGridView.Cells["Basic_vType"].Value.ToString(),
+                    dataGridView.Cells["Basic_vKeyid"].Value.ToString(), dataGridView.Cells["Basic_vKeyName"].Value.ToString()
+                    , dataGridView.Cells["Basic_vKeyName"].Value.ToString(), dataGridView.Cells["Basic_vkeyValue"].Value.ToString()
+                    , dataGridView.Cells["Basic_vHzrxField1"].Value.ToString(), dataGridView.Cells["Basic_vHzrxField2"].Value.ToString(),
+                    dataGridView.Cells["Basic_IOrderId"].Value.ToString(), dataGridView.Cells["Basic_vRemarks"].Value.ToString(),
+                    dataGridView.Cells["tableName"].Value.ToString());
+                bac.Show();
+
+            }
+            else {
+                DataGridViewRow dataGridView = Basic_dataGridView.Rows[index];
+                bac.setbasicAllCtr(dataGridView.Cells["Basic_ibillid"].Value.ToString(), dataGridView.Cells["Basic_vType"].Value.ToString(),
+                    dataGridView.Cells["Basic_vKeyid"].Value.ToString(), dataGridView.Cells["Basic_vKeyName"].Value.ToString()
+                    , dataGridView.Cells["Basic_vKeyName"].Value.ToString(), dataGridView.Cells["Basic_vkeyValue"].Value.ToString()
+                    , dataGridView.Cells["Basic_vHzrxField1"].Value.ToString(), dataGridView.Cells["Basic_vHzrxField2"].Value.ToString(),
+                    dataGridView.Cells["Basic_IOrderId"].Value.ToString(), dataGridView.Cells["Basic_vRemarks"].Value.ToString(),
+                    dataGridView.Cells["tableName"].Value.ToString());
+                bac.TopMost = true;
+            
+            }
         }
+
         #endregion
         #endregion
 
@@ -811,7 +866,7 @@ namespace PageRederForRX
         #region 4.1 赋值及权限 table页 查询按钮点击事件
         private void button5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("未完成功能！参阅单据属性！","提示");
+            MessageBox.Show("未完成功能！参阅单据属性！", "提示");
             //加载数据
             if (MainListBox.SelectedItem == null)
             {
@@ -844,7 +899,7 @@ namespace PageRederForRX
         {
             //双击
             int rowIndex = e.RowIndex;
-            BillChkStand stand = new BillChkStand();
+            BillChkStand stand = new BillChkStand(this);
             stand.IBillId = shuxingDataGrid.Rows[rowIndex].Cells["IBILLID"].Value.ToString();
             stand.VOrgID = shuxingDataGrid.Rows[rowIndex].Cells["vOrgID"].Value.ToString();
             stand.VID = shuxingDataGrid.Rows[rowIndex].Cells["cvID"].Value.ToString();
