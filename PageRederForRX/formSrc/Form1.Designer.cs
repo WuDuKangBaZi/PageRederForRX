@@ -103,6 +103,7 @@
             this.Basic_vHzrxField2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Basic_IOrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Basic_vRemarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drawPanel = new System.Windows.Forms.Panel();
             this.ChartLayout_panel = new System.Windows.Forms.FlowLayoutPanel();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel26 = new System.Windows.Forms.Panel();
@@ -116,7 +117,7 @@
             this.lockbtn = new System.Windows.Forms.Button();
             this.savethis = new System.Windows.Forms.Button();
             this.recbtn = new System.Windows.Forms.Button();
-            this.combtn = new System.Windows.Forms.Button();
+            this.pro = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel19 = new System.Windows.Forms.Panel();
@@ -206,7 +207,6 @@
             this.vChange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vtexttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataLoadBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.drawPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -229,6 +229,7 @@
             this.RoleBIllLay_panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Basic_dataGridView)).BeginInit();
+            this.drawPanel.SuspendLayout();
             this.panel26.SuspendLayout();
             this.rightPanel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -255,7 +256,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ChartLayout_dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).BeginInit();
-            this.drawPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainListBox
@@ -985,6 +985,17 @@
             this.Basic_vRemarks.Name = "Basic_vRemarks";
             this.Basic_vRemarks.ReadOnly = true;
             // 
+            // drawPanel
+            // 
+            this.drawPanel.AutoScroll = true;
+            this.drawPanel.Controls.Add(this.ChartLayout_panel);
+            this.drawPanel.Controls.Add(this.mainPanel);
+            this.drawPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.drawPanel.Location = new System.Drawing.Point(0, 26);
+            this.drawPanel.Name = "drawPanel";
+            this.drawPanel.Size = new System.Drawing.Size(919, 450);
+            this.drawPanel.TabIndex = 8;
+            // 
             // ChartLayout_panel
             // 
             this.ChartLayout_panel.Location = new System.Drawing.Point(39, 6);
@@ -1091,7 +1102,7 @@
             this.flowLayoutPanel1.Controls.Add(this.lockbtn);
             this.flowLayoutPanel1.Controls.Add(this.savethis);
             this.flowLayoutPanel1.Controls.Add(this.recbtn);
-            this.flowLayoutPanel1.Controls.Add(this.combtn);
+            this.flowLayoutPanel1.Controls.Add(this.pro);
             this.flowLayoutPanel1.Controls.Add(this.button6);
             this.flowLayoutPanel1.Controls.Add(this.button7);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1134,16 +1145,15 @@
             this.recbtn.UseVisualStyleBackColor = true;
             this.recbtn.Click += new System.EventHandler(this.recbtn_Click);
             // 
-            // combtn
+            // pro
             // 
-            this.combtn.Location = new System.Drawing.Point(13, 32);
-            this.combtn.Name = "combtn";
-            this.combtn.Size = new System.Drawing.Size(75, 23);
-            this.combtn.TabIndex = 3;
-            this.combtn.Text = "com接口";
-            this.combtn.UseVisualStyleBackColor = true;
-            this.combtn.Visible = false;
-            this.combtn.Click += new System.EventHandler(this.combtn_Click);
+            this.pro.Location = new System.Drawing.Point(13, 32);
+            this.pro.Name = "pro";
+            this.pro.Size = new System.Drawing.Size(75, 23);
+            this.pro.TabIndex = 3;
+            this.pro.Text = "住宿标准";
+            this.pro.UseVisualStyleBackColor = true;
+            this.pro.Click += new System.EventHandler(this.combtn_Click);
             // 
             // button6
             // 
@@ -1954,17 +1964,6 @@
             this.vtexttype.ReadOnly = true;
             this.vtexttype.Visible = false;
             // 
-            // drawPanel
-            // 
-            this.drawPanel.AutoScroll = true;
-            this.drawPanel.Controls.Add(this.ChartLayout_panel);
-            this.drawPanel.Controls.Add(this.mainPanel);
-            this.drawPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.drawPanel.Location = new System.Drawing.Point(0, 26);
-            this.drawPanel.Name = "drawPanel";
-            this.drawPanel.Size = new System.Drawing.Size(919, 450);
-            this.drawPanel.TabIndex = 8;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2002,6 +2001,7 @@
             this.RoleBIllLay_panel2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Basic_dataGridView)).EndInit();
+            this.drawPanel.ResumeLayout(false);
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             this.rightPanel.ResumeLayout(false);
@@ -2046,7 +2046,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ChartLayout_dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataLoadBindingSource)).EndInit();
-            this.drawPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2114,7 +2113,7 @@
         private System.Windows.Forms.Button lockbtn;
         private System.Windows.Forms.Button savethis;
         private System.Windows.Forms.Button recbtn;
-        private System.Windows.Forms.Button combtn;
+        private System.Windows.Forms.Button pro;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.DataGridViewTextBoxColumn vID;

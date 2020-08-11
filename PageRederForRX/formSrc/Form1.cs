@@ -3,15 +3,11 @@ using PageRederForRX.src.Function;
 using PageRederForRX.src.LayoutEdit;
 using PageRederTestConsole;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Threading;
 
 namespace PageRederForRX
 {
@@ -22,6 +18,7 @@ namespace PageRederForRX
         System.Resources.ResourceManager rm = null;
         public BasicAllCtr bac = null;
         public BillChkStand bcs = null;
+        public ExcelToProvinceExp etpe = null;
         public Form1()
         {
             InitializeComponent();
@@ -447,18 +444,14 @@ namespace PageRederForRX
         #region com接口查询按钮 废弃 后续删除
         private void combtn_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text.Length < 1)
+            if (etpe == null)
             {
-                MessageBox.Show("未选中字段");
-            }
-            else
-            {
-                detailedForm df = new detailedForm();
+                etpe = new ExcelToProvinceExp(this);
+                etpe.Show();
 
-                df.setParam(new DBUtil().Query(new DBUtil().GetConnection(),
-                    $"select IBillID from TBUDT_ModeLayout where vid ='{MainListBox.SelectedItem}'").Tables[0].Rows[0][0].ToString(),
-                    textBox2.Text, int.Parse(comboBox2.SelectedValue.ToString()));
-                df.Show();
+            }
+            else {
+                etpe.TopMost = true;
             }
 
         }
