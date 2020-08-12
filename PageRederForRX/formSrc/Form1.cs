@@ -906,10 +906,10 @@ namespace PageRederForRX
             stand.Show();
 
         }
-        #endregion
 
         #endregion
 
+        #endregion
 
     }
 }
